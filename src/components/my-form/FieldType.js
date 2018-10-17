@@ -69,7 +69,7 @@ export const FieldTypeCheckbox = (val)=>{
     return  <Checkbox  style={val.styles} onChange={val.event.onChange}/>
 }
 export const FieldTypeDatePicker=(val)=>{
-    return <DatePicker size={val.size} />
+    return <DatePicker style={{width : '100%'}} size={val.size} />
 }
 export const FieldTypeCheckboxInline = (val)=>{
     return  <Row type="flex" justify="center">

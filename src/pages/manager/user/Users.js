@@ -190,23 +190,32 @@ class Companys extends Component{
                     <Row type="flex" justify="space-between" className="row-button">
                         <Col >
                             <Button type="primary" onClick={this.showModal}>
-                                <Icon type="user-add" theme="outlined" />Add Users 
+                                <Icon type="user-add" theme="outlined" />Add User 
                             </Button>
                         </Col>
                         <Col>
-                            <Search
-                                placeholder="Input search text"
-                                onSearch={val=>this.searchHandle(val)}
-                                style={{ width: 200 }}
-                            />
+                            <Button type="default" onClick={this.showModal}>
+                                <Icon type="filter" theme="outlined" />Filter 
+                            </Button>{' '}
+                            <Button type="default" onClick={this.showModal}>
+                                <Icon type="sort" theme="outlined" />Sort  
+                            </Button>
                         </Col>
+                    </Row>
+                    <br/>
+                    <Row>
+                        <Search
+                            placeholder="Input search text"
+                            onSearch={val=>this.searchHandle(val)}
+                            style={{ width: '100%' }}
+                        />
                     </Row>
                     <br/>
                     <Row>
                         <MyTable styleTable="TABLE_ANTD" data={organs} col={organCol} ObjSetting={objSetting}/>
                     </Row>
                 </Content>
-                <Content style={{ paddingLeft:'5px',width:'100%'}}>
+                <Content style={{paddingLeft:'5px', width:'100%'}}>
                    {
                        (this.state.userSelected!==null)?
                         <UserInfo userInfo={this.state.userSelected}/>

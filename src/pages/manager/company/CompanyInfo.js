@@ -82,7 +82,10 @@ class CompanyInfo extends Component{
                 },
                 fieldType:{
                     type:"INPUT_NUMBER",
-                }
+                },
+                style:{
+                    marginTop:'-15px'
+                },
             },
           ]
         

@@ -165,9 +165,7 @@ class Companys extends Component{
                         <Col>
                             <Button type="default" onClick={this.showModal}>
                                 <Icon type="filter" theme="outlined" />Filter 
-                            </Button>
-                        </Col>
-                        <Col>
+                            </Button>{' '}
                             <Button type="default" onClick={this.showModal}>
                                 <Icon type="sort" theme="outlined" />Sort  
                             </Button>
