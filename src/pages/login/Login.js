@@ -56,16 +56,17 @@ class SignIn extends Component {
   };
   handleSubmit = (e,props) => {
     e.preventDefault();
-    this.setState({btnLoadding:true});
-    props.form.validateFields((err, values) => {
-      if (!err) {
-        var user={
-            email:values.username,
-            password:values.password
-        }
-        this.props.handleLogin(user);
-      }
-    });
+    this.props.history.push("/company");
+    // this.setState({btnLoadding:true});
+    // props.form.validateFields((err, values) => {
+    //   if (!err) {
+    //     var user={
+    //         email:values.username,
+    //         password:values.password
+    //     }
+    //     this.props.handleLogin(user);
+    //   }
+    // });
   }
   componentWillReceiveProps(nextProps) {
     if (
@@ -76,10 +77,10 @@ class SignIn extends Component {
     }
   }
   handleLogin = () => {
-    const { login, clearMenu } = this.props;
-    login();
-    clearMenu();
-    this.props.history.push("/dashboard");
+    // const { login, clearMenu } = this.props;
+    // login();
+    // clearMenu();
+    this.props.history.push("/company");
   };
   render() {
     const listButton=[
@@ -131,16 +132,23 @@ class SignIn extends Component {
         <div className="isoLoginContentWrapper">
           <div className="isoLoginContent">
             <div className="isoLogoWrapper">
+<<<<<<< HEAD
               
                   <h2>PROPTECH PLUS</h2>
                 
+=======
+              <Link to="/dashboard">
+                  LOGIN
+                {/* <IntlMessages id="page.signInTitle" /> */}
+              </Link>
+>>>>>>> 9b2b5053fdbbedb6a17c08d95c80decaae1b7cbf
             </div>
 
             <div className="isoSignInForm">
               <div className="isoInputWrapper">
                 <MyForm
                     type="ADD" 
-                    layout="vertical" 
+                    layout="vertical"
                     listField={listField}
                     styles={styles}
                     onSubmit={this.handleSubmit}
