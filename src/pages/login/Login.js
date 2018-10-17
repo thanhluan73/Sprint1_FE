@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import './login.style.css';
 import MyForm from 'components/my-form/MyForm.js';
+import Chkb from './../../components/my-checkbox/Chkb';
+
 const listField=[
   {
       id:"username",
@@ -35,13 +37,17 @@ const listField=[
           onClick:()=>console.log("event onClick "),
           onChange:()=>console.log("event onChange "),
       },
+      style:{
+        marginTop : '-15px'
+      },
       fieldType:{
           type:"INPUT_PASSWORD",
       }
   },
 ]
 const styles={
-  textAlign:'center'
+  textAlign:'center',
+  
 }
 class SignIn extends Component {
   state = {
@@ -79,34 +85,39 @@ class SignIn extends Component {
     const listButton=[
       {
           name:"Submit",
-          title:"Submit",
-          description:"Submit data from your form",
+          title:"Login",
+          description:"Login to Homepage",
           loading:this.state.btnLoadding,
           events:{
               onSubmit: ()=>console.log("submit form login"),
           },
           styles:{
               color:'cyan',
-              margin:'5px'
+              margin:'5px',
+              position: 'absolute',
+              right: '45px',
+              marginTop: '-5px'
           },
           type:"SUBMIT",
-          icon:"save",
+          icon:"login",
           typeButon:"primary"
       },
       {
-          name:"Back",
-          title:"Back",
-          description:"Back",
-          // link:this.props.router.location.pathname,
-          onClick:()=>console.log("back"),
-          events:()=>console.log("event form"),
+          name:"Submit",
+          title:"Register new account",
+          description:"Register new account",
+          loading:this.state.btnLoadding,
+          events:{
+              onSubmit: ()=>console.log("submit form login"),
+          },
           styles:{
               color:'red',
-              margin:'5px'
+              margin: '5px',
+              marginTop: '50px'
           },
-          type:"BACK",
-          icon:"rollback",
-          typeButon:"primary"
+          type:"SUBMIT",
+          icon:"audit",
+          typeButon:"danger"
       },
   ]
     const from = { pathname: "/dashboard" };
@@ -120,11 +131,9 @@ class SignIn extends Component {
         <div className="isoLoginContentWrapper">
           <div className="isoLoginContent">
             <div className="isoLogoWrapper">
-              <Link to="/dashboard">
               
-                  LOGIN
-                {/* <IntlMessages id="page.signInTitle" /> */}
-              </Link>
+                  <h2>PROPTECH PLUS</h2>
+                
             </div>
 
             <div className="isoSignInForm">
@@ -137,6 +146,9 @@ class SignIn extends Component {
                     onSubmit={this.handleSubmit}
                     listButton={listButton}
                 />
+              </div>
+              <div className="ChkbRemember">
+                <Chkb></Chkb>
               </div>
 
               <div className="isoInputWrapper isoLeftRightComponent">
@@ -151,6 +163,7 @@ class SignIn extends Component {
               <p className="isoHelperText">
                 {/* <IntlMessages id="page.signInPreview" /> */}
               </p>
+              
 
               <div className="isoInputWrapper isoOtherLogin">
                 {/* <Button onClick={this.handleLogin} type="primary btnFacebook">

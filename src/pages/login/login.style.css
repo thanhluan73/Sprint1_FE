@@ -7,78 +7,82 @@
   justify-content: flex-end;
   align-items: center;
   position: relative;
-  background: url('../../images/login/sign.jpg') no-repeat center center;
+  background: url('../../images/login/Sign.jpg') no-repeat center center;
   background-size: cover;
   background-color: red;
   
 }
 
-  .isoLoginContentWrapper {
-    width: 500px;
-    height: 100%;
-    overflow-y: auto;
-    z-index: 10;
-    position: relative;
-  }
+.isoLoginContentWrapper {
+  width: 500px;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 10;
+  position: relative;
+}
 
-  .isoLoginContent {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 70px 50px;
-    position: relative;
-    background-color: #ffffff;
+.isoLoginContent {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 70px 50px;
+  position: relative;
+  background-color: #ffffff;
 
-  }
+}
 
-    .isoLoginContent >.isoLogoWrapper {
-      width: 100%;
-      display: flex;
-      margin-bottom: 50px;
-      justify-content: center;
-      flex-shrink: 0;
+.isoLoginContent >.isoLogoWrapper {
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
-    }
+.isoLoginContent>.isoSignInForm {
+  width: 100%;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.isoLoginContent>.isoSignInForm>.isoInputWrapper {
+  margin-bottom: 15px;
 
-    .isoLoginContent>.isoSignInForm {
-      width: 100%;
-      display: flex;
-      flex-shrink: 0;
-      flex-direction: column;
-    }
-      .isoLoginContent>.isoSignInForm>.isoInputWrapper {
-        margin-bottom: 15px;
+}
 
-      }
+.isoLoginContent>.isoHelperText {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 15px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
 
-      .isoLoginContent>.isoHelperText {
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 1.2;
-        margin: 15px 0;
-        position: relative;
-        display: flex;
-        align-items: center;
+}
 
-      }
+.isoHelperWrapper {
+  margin-top: 35px;
+  flex-direction: column;
+}
 
-      .isoHelperWrapper {
-        margin-top: 35px;
-        flex-direction: column;
-      }
+.isoOtherLogin {
+  padding-top: 40px;
+  margin-top: 35px;
+}
 
-      .isoOtherLogin {
-        padding-top: 40px;
-        margin-top: 35px;
-      }
+.isoForgotPass {
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
 
-      .isoForgotPass {
-        font-size: 12px;
-        margin-bottom: 10px;
-        text-decoration: none;
-      }
-
-      button {
-        font-weight: 500;
-      }
+.button {
+  font-weight: 500;
+}
+.ChkbRemember {
+  position: absolute;
+  margin-top: 170px;
+}
 
