@@ -132,16 +132,9 @@ class SignIn extends Component {
         <div className="isoLoginContentWrapper">
           <div className="isoLoginContent">
             <div className="isoLogoWrapper">
-<<<<<<< HEAD
               
                   <h2>PROPTECH PLUS</h2>
                 
-=======
-              <Link to="/dashboard">
-                  LOGIN
-                {/* <IntlMessages id="page.signInTitle" /> */}
-              </Link>
->>>>>>> 9b2b5053fdbbedb6a17c08d95c80decaae1b7cbf
             </div>
 
             <div className="isoSignInForm">

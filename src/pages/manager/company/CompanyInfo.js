@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter,Link,Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Layout, Menu, Breadcrumb,Input,Row,Button,Col,Icon } from 'antd';
+import { Layout, Menu, Breadcrumb,Input,Row,Button,Col,Upload, Icon, Modal } from 'antd';
 import MyForm from 'components/my-form/MyForm';
 const listField=[
     {
         id:"username",
-        label:"Username:",
+        label:"Company name:",
         description:"Email của bạn vào là ok!",
         icon:"user",
         placeholder:"Enter your email...",
@@ -14,7 +14,7 @@ const listField=[
         message:'Vui lòng nhập username',
         typeValidation:"email",
         messageValidation:'Không phải định dạng email',
-        defaultValue:"sa@gmail.com",
+        defaultValue:"Proptech Plus",
         event:{
             onClick:()=>console.log("event onClick "),
             onChange:()=>console.log("event onChange "),
@@ -25,19 +25,19 @@ const listField=[
     },
     {
         id:"password", 
-        label:"Password:", 
+        label:"Size:", 
         description:"Password mà bạn đã đăng ký cho tài khoản này.",
         icon:"lock",
         placeholder:"Enter your password...",
         required:true,
         message:'Vui lòng nhập password',
-        defaultValue:"Pass123$",
+        defaultValue:"123",
         event:{
             onClick:()=>console.log("event onClick "),
             onChange:()=>console.log("event onChange "),
         },
         fieldType:{
-            type:"INPUT_PASSWORD",
+            type:"INPUT_NUMBER",
         }
     },
   ]
@@ -51,8 +51,17 @@ class CompanyInfo extends Component{
         iSearch:"ALL",
         pageSize:5,
         pageIndex:1,
-        listPageVisit:[1],
+        listPageVisit:[1], 
         listPageVisitFilter:[1],
+
+        previewVisible: false,
+        previewImage: '',
+        fileList: [{
+          uid: '-1',
+          name: 'xxx.png',
+          status: 'done',
+          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        }],
     }
     componentWillMount(){
         // this.props.fetchingCompany();
@@ -61,7 +70,26 @@ class CompanyInfo extends Component{
     getCompanys=()=>{
 
     }
+    handleCancel = () => this.setState({ previewVisible: false })
+
+    handlePreview = (file) => {
+      this.setState({
+        previewImage: file.url || file.thumbUrl,
+        previewVisible: true,
+      });
+    }
+  
+    handleChange = ({ fileList }) => this.setState({ fileList })
+  
+   
     render(){
+        const { previewVisible, previewImage, fileList } = this.state;
+        const uploadButton = (
+        <div>
+            <Icon type="plus" />
+            <div className="ant-upload-text">Upload</div>
+        </div>
+        );
         const listButton=[
             // {
             //     name:"Submit",
@@ -110,17 +138,36 @@ class CompanyInfo extends Component{
                         </Col>
                     </Row>
                     <br/>
-                    <Row>
-
-                        <MyForm
-                            type="ADD" 
-                            layout="horizontal"
-                            listField={listField}
-                            styles={styles}
-                            onSubmit={this.handleSubmit}
-                            listButton={listButton}
-                        />
-                    </Row>
+                    <div style={{display:'flex', flexDirection:'row'}}>
+                        <Content style={{ width :'40%' ,textAlign:'center'}}>
+                            <div className="clearfix">
+                                <Upload
+                                    action="//jsonplaceholder.typicode.com/posts/"
+                                    listType="picture-card"
+                                    // fileList={fileList}
+                                    onPreview={this.handlePreview}
+                                    onChange={this.handleChange}
+                                    >
+                                    {fileList.length >= 3 ? null : uploadButton}
+                                </Upload>
+                                    <p>ProptechPlus</p>
+                                <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+                                    <img alt="example" style={{ width: '100%' }} src={previewImage} />
+                                </Modal>
+                            </div>
+                        </Content>
+                        <Content style={{ width :'100%' }}>
+                            <MyForm
+                                type="ADD" 
+                                layout="horizontal"
+                                listField={listField}
+                                styles={styles}
+                                onSubmit={this.handleSubmit}
+                                listButton={listButton}
+                            />
+                        </Content>
+                    </div>
+                       
                 </Content>
 
             </div>
