@@ -6,6 +6,21 @@ import MyForm from 'components/my-form/MyForm';
 const styles={
 textAlign:'center'
 }
+const listOption=[
+    {
+        id:"1",
+        name:"Admin",
+        description:"Admin",
+        postID:"80000"
+    },
+    {
+        id:"21",
+        name:"Member",
+        description:"Member",
+        postID:"80000"
+    },
+]
+
 const { Header, Content, Footer } = Layout;
 const Search = Input.Search;   
 class UserInfo extends Component{
@@ -82,8 +97,30 @@ class UserInfo extends Component{
                 },
                 fieldType:{
                     type:"INPUT_NUMBER",
-                }
+                },
+                
             },
+            {
+                id:"role", 
+                label:"Role:", 
+                description:"Password mà bạn đã đăng ký cho tài khoản này.",
+                icon:"lock",
+                placeholder:"Enter your password...",
+                required:true,
+                message:'Vui lòng nhập password',
+                // defaultValue:userInfo.size,
+                event:{
+                    onClick:()=>console.log("event onClick "),
+                    onChange:()=>console.log("event onChange "),
+                },
+                fieldType:{
+                    type:"SELECT",
+                    listOption:{listOption},
+                    mode:'multiple',
+                    size:'default',
+                },
+                
+            }
           ]
         
         const uploadButton = (

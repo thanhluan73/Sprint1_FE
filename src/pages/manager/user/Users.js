@@ -69,41 +69,73 @@ class Companys extends Component{
                 id: '1',
                 name: 'Phong Nguyen',
                 size: 32,
+                Role: 'Admin',
+                Phone: '0908888888',
+                Address: 'XLHN',
+                Birthday: '24/11/95'
             }, 
             {
                 id: '2',
                 name: 'Thinh Nguyen',
                 size: 42,
+                Role: 'Admin',
+                Phone: '0908888888',
+                Address: 'XLHN',
+                Birthday: '24/11/95'
             },
             {
                 id: '3',
                 name: 'Thanh Luan',
                 size: 32,
+                Role: 'Admin',
+                Phone: '0908888888',
+                Address: 'XLHN',
+                Birthday: '24/11/95'
             }, 
             {
                 id: '4',
                 name: 'Tu Nguyen',
                 size: 42,
+                Role: 'Admin',
+                Phone: '0908888888',
+                Address: 'XLHN',
+                Birthday: '24/11/95'
             },
             {
                 id: '5',
                 name: 'Tuan Ho',
                 size: 32,
+                Role: 'Admin',
+                Phone: '0908888888',
+                Address: 'XLHN',
+                Birthday: '24/11/95'
             }, 
             {
                 id: '6',
                 name: 'Lan Anh',
                 size: 42,
+                Role: 'Admin',
+                Phone: '0908888888',
+                Address: 'XLHN',
+                Birthday: '24/11/95'
             },
             {
                 id: '7',
                 name: 'Luong Do',
                 size: 32,
+                Role: 'Admin',
+                Phone: '0908888888',
+                Address: 'XLHN',
+                Birthday: '24/11/95'
             }, 
             {
                 id: '8',
                 name: 'An Mai',
                 size: 42,
+                Role: 'Admin',
+                Phone: '0908888888',
+                Address: 'XLHN',
+                Birthday: '24/11/95'
             },
         ];
           
