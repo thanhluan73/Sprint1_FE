@@ -50,16 +50,17 @@ class SignIn extends Component {
   };
   handleSubmit = (e,props) => {
     e.preventDefault();
-    this.setState({btnLoadding:true});
-    props.form.validateFields((err, values) => {
-      if (!err) {
-        var user={
-            email:values.username,
-            password:values.password
-        }
-        this.props.handleLogin(user);
-      }
-    });
+    this.props.history.push("/company");
+    // this.setState({btnLoadding:true});
+    // props.form.validateFields((err, values) => {
+    //   if (!err) {
+    //     var user={
+    //         email:values.username,
+    //         password:values.password
+    //     }
+    //     this.props.handleLogin(user);
+    //   }
+    // });
   }
   componentWillReceiveProps(nextProps) {
     if (
@@ -70,10 +71,10 @@ class SignIn extends Component {
     }
   }
   handleLogin = () => {
-    const { login, clearMenu } = this.props;
-    login();
-    clearMenu();
-    this.props.history.push("/dashboard");
+    // const { login, clearMenu } = this.props;
+    // login();
+    // clearMenu();
+    this.props.history.push("/company");
   };
   render() {
     const listButton=[
@@ -121,7 +122,6 @@ class SignIn extends Component {
           <div className="isoLoginContent">
             <div className="isoLogoWrapper">
               <Link to="/dashboard">
-              
                   LOGIN
                 {/* <IntlMessages id="page.signInTitle" /> */}
               </Link>
@@ -131,7 +131,7 @@ class SignIn extends Component {
               <div className="isoInputWrapper">
                 <MyForm
                     type="ADD" 
-                    layout="vertical" 
+                    layout="vertical"
                     listField={listField}
                     styles={styles}
                     onSubmit={this.handleSubmit}
