@@ -3,6 +3,7 @@ import { withRouter,Link,Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Layout, Menu, Breadcrumb,Input,Row,Button,Col,Icon } from 'antd';
 import MyTable from 'components/table/MyTable';
+import UserInfo from 'pages/manager/user/UserInfo';
 
 const { Header, Content, Footer } = Layout;
 const Search = Input.Search;   
@@ -13,6 +14,7 @@ class Companys extends Component{
         pageIndex:1,
         listPageVisit:[1],
         listPageVisitFilter:[1],
+        userSelected:null
     }
     componentWillMount(){
         // this.props.fetchingCompany();
@@ -57,50 +59,50 @@ class Companys extends Component{
                 });
             }
     } 
-    getCompanys=()=>{
-
+    getUser=(obj)=>{
+        this.setState({userSelected:obj});
     }
     render(){
         // var {organs} = this.props;
         const organs = [
             {
                 id: '1',
-                name: 'Proptech Plus',
+                name: 'Phong Nguyen',
                 size: 32,
             }, 
             {
                 id: '2',
-                name: 'FPT',
+                name: 'Thinh Nguyen',
                 size: 42,
             },
             {
                 id: '3',
-                name: 'Microsoft',
+                name: 'Thanh Luan',
                 size: 32,
             }, 
             {
                 id: '4',
-                name: 'IBM',
+                name: 'Tu Nguyen',
                 size: 42,
             },
             {
                 id: '5',
-                name: 'Apple',
+                name: 'Tuan Ho',
                 size: 32,
             }, 
             {
                 id: '6',
-                name: 'Google',
+                name: 'Lan Anh',
                 size: 42,
             },
             {
                 id: '7',
-                name: 'Viettel',
+                name: 'Luong Do',
                 size: 32,
             }, 
             {
                 id: '8',
-                name: 'Lazada',
+                name: 'An Mai',
                 size: 42,
             },
         ];
@@ -115,7 +117,7 @@ class Companys extends Component{
             className: "-striped -highlight",
             page:this.state.pageIndex,
             pageSize:this.state.pageSize,
-            getObject:this.getCompanys
+            getObject:this.getUser
         }
         var  organCol=[
             {
@@ -151,7 +153,7 @@ class Companys extends Component{
            
         ];
         return (
-            <div>
+            <div  style={{display:'flex', flexDirection:'row'}}>
                 <Content style={{ width :'50%' }}>
                     <Row type="flex" justify="space-between" className="row-button">
                         <Col >
@@ -171,6 +173,14 @@ class Companys extends Component{
                     <Row>
                         <MyTable styleTable="TABLE_ANTD" data={organs} col={organCol} ObjSetting={objSetting}/>
                     </Row>
+                </Content>
+                <Content style={{ paddingLeft:'5px',width:'100%'}}>
+                   {
+                       (this.state.userSelected!==null)?
+                        <UserInfo userInfo={this.state.userSelected}/>
+                        // <div>{this.state.companySelected.name}</div>
+                       :(<div></div>)
+                   }
                 </Content>
 
             </div>

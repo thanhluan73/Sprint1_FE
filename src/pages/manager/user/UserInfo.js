@@ -8,7 +8,7 @@ textAlign:'center'
 }
 const { Header, Content, Footer } = Layout;
 const Search = Input.Search;   
-class CompanyInfo extends Component{
+class UserInfo extends Component{
     state={
         iSearch:"ALL",
         pageSize:5,
@@ -46,7 +46,7 @@ class CompanyInfo extends Component{
    
     render(){
         const { previewVisible, previewImage, fileList} = this.state;
-        var {companySelected} =this.props;
+        var {userInfo} =this.props;
         var listField=[
             {
                 id:"username",
@@ -58,7 +58,7 @@ class CompanyInfo extends Component{
                 message:'Vui lòng nhập username',
                 typeValidation:"email",
                 messageValidation:'Không phải định dạng email',
-                defaultValue:companySelected.name,
+                defaultValue:userInfo.name,
                 event:{
                     onClick:()=>console.log("event onClick "),
                     onChange:()=>console.log("event onChange "),
@@ -75,7 +75,7 @@ class CompanyInfo extends Component{
                 placeholder:"Enter your password...",
                 required:true,
                 message:'Vui lòng nhập password',
-                defaultValue:companySelected.size,
+                defaultValue:userInfo.size,
                 event:{
                     onClick:()=>console.log("event onClick "),
                     onChange:()=>console.log("event onChange "),
@@ -152,7 +152,7 @@ class CompanyInfo extends Component{
                                     >
                                     {fileList.length >= 3 ? null : uploadButton}
                                 </Upload>
-                                    <p>{companySelected.name}</p>
+                                    <p>{userInfo.name}</p>
                                 <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
                                     <img alt="example" style={{ width: '100%' }} src={previewImage} />
                                 </Modal>
@@ -191,4 +191,4 @@ const mapDispatchToProps = (dispatch, props) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CompanyInfo));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserInfo));

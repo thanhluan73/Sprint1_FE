@@ -13,6 +13,7 @@ class Companys extends Component{
         pageIndex:1,
         listPageVisit:[1],
         listPageVisitFilter:[1],
+        companySelected:null
     }
     componentWillMount(){
         // this.props.fetchingCompany();
@@ -57,8 +58,9 @@ class Companys extends Component{
                 });
             }
     } 
-    getCompanys=()=>{
-
+    getCompanys=(obj)=>{
+        console.log(obj);
+        this.setState({companySelected:obj});
     }
     render(){
         // var {organs} = this.props;
@@ -117,6 +119,7 @@ class Companys extends Component{
             pageSize:this.state.pageSize,
             getObject:this.getCompanys
         }
+        console.log(this.state.companySelected);
         var  organCol=[
             {
                 title: "id",
@@ -184,7 +187,12 @@ class Companys extends Component{
                     </Row>
                 </Content>
                 <Content style={{ paddingLeft:'5px',width:'100%'}}>
-                   <CompanyInfo/>
+                   {
+                       (this.state.companySelected!==null)?
+                        <CompanyInfo companySelected={this.state.companySelected}/>
+                        // <div>{this.state.companySelected.name}</div>
+                       :(<div></div>)
+                   }
                 </Content>
             </div>
             );
