@@ -85,4 +85,18 @@
   position: absolute;
   margin-top: 170px;
 }
+.fgPassword{
+  position: absolute;
+  margin-left: 145px;
+  top: 450px;
+  color: #000000;
+  opacity:54%;
+  font-size: 10px;
+}
+.hr{
+  position: relative;
+  margin-top: -140px;
+  border: 0.5px dashed #d8d8d8;
+  
+}
 
