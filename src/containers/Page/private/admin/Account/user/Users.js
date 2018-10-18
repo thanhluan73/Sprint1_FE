@@ -178,8 +178,8 @@ class Companys extends Component{
                render:(text)  => {
                    return (
                        <div className="button-table"> 
-                           <Button disabled={isDisabled} onClick={this.showModalEdit}   icon="edit" />{'    '}
-                           <Button disabled={isDisabled} onClick={this.showModalEdit}  icon="delete" />
+                           <Button style={{border:'none'}} disabled={isDisabled} onClick={this.showModalEdit}  icon="edit" />{'    '}
+                           <Button style={{border:'none'}} disabled={isDisabled} onClick={this.showModalEdit}  icon="delete" />
                        </div>
                        )
                }
@@ -201,7 +201,7 @@ class Companys extends Component{
                                     <Icon type="filter" theme="outlined" />Filter 
                                 </Button>{' '}
                                 <Button type="default" onClick={this.showModal}>
-                                    <Icon type="sort" theme="outlined" />Sort  
+                                    <Icon type="sort-ascending"/>Sort  
                                 </Button>
                             </Col>
                         </Row>
