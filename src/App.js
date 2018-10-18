@@ -5,6 +5,9 @@ import Menu from './components/menu/Menu';
 import { BrowserRouter as Router, Route, Link, Switch,withRouter } from "react-router-dom";
 
 class App extends Component {
+    state={
+        login:true
+    }
   showContentMenus = (routes) => {
     var result = null;
     if (routes.length > 0) {
@@ -26,8 +29,9 @@ class App extends Component {
   }
   render() {
     return (<div>
-      {this.showContentMenus(publicRoutes)}
-        <Menu/>
+      {
+          (this.state.login)?  this.showContentMenus(publicRoutes): <Menu/>
+      }
     </div>
     );
   }
