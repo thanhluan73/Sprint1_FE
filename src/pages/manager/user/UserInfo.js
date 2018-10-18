@@ -3,6 +3,8 @@ import { withRouter,Link,Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Layout, Menu, Breadcrumb,Input,Row,Button,Col,Upload, Icon, Modal } from 'antd';
 import MyForm from 'components/my-form/MyForm';
+
+import PanelWrapper from "containers/Custom/Panel.style";
 const styles={
     textAlign:'center'
 };
@@ -194,41 +196,10 @@ class UserInfo extends Component{
         </div>
         );
         const listButton=[
-            // {
-            //     name:"Submit",
-            //     title:"Submit",
-            //     description:"Submit data from your form",
-            //     loading:this.state.btnLoadding,
-            //     events:{
-            //         onSubmit: ()=>console.log("submit form login"),
-            //     },
-            //     styles:{
-            //         color:'cyan',
-            //         margin:'5px'
-            //     },
-            //     type:"SUBMIT",
-            //     icon:"save",
-            //     typeButon:"primary"
-            // },
-            // {
-            //     name:"Back",
-            //     title:"Back",
-            //     description:"Back",
-            //     // link:this.props.router.location.pathname,
-            //     onClick:()=>console.log("back"),
-            //     events:()=>console.log("event form"),
-            //     styles:{
-            //         color:'red',
-            //         margin:'5px'
-            //     },
-            //     type:"BACK",
-            //     icon:"rollback",
-            //     typeButon:"primary"
-            // },
         ]
           
        return (
-            <div>
+            <PanelWrapper>
                 <Content style={{ width :'95%' }}>
                     <Row type="flex"  className="row-button">
                         <Col >
@@ -272,8 +243,7 @@ class UserInfo extends Component{
                     </div>
                        
                 </Content>
-
-            </div>
+            </PanelWrapper>
             );
     }
 }

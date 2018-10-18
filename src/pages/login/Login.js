@@ -114,7 +114,7 @@ class SignIn extends Component {
           styles:{
               color:'red',
               margin: '5px',
-              marginTop: '50px'
+              marginTop: '100px',
           },
           type:"SUBMIT",
           icon:"audit",
@@ -132,7 +132,10 @@ class SignIn extends Component {
         <div className="isoLoginContentWrapper">
           <div className="isoLoginContent">
             <div className="isoLogoWrapper">
-                  <h2>PROPTECH PLUS</h2>
+                <Link to="/dashboard">
+                <h2>PROPTECH PLUS</h2>
+                 {/* <IntlMessages id="page.signInTitle" /> */}
+                </Link>   
             </div>
             <div className="isoSignInForm">
               <div className="isoInputWrapper">
@@ -147,6 +150,12 @@ class SignIn extends Component {
               </div>
               <div className="ChkbRemember">
                 <Chkb></Chkb>
+              </div>
+              <div>
+                <hr className="hr" />
+                <Link to="/forgotpassword" className="fgPassword">
+                    <b><p>Forgot password?</p></b>
+                </Link>
               </div>
             </div>
           </div>

@@ -6,28 +6,17 @@ const adminRoutes = [
   {
     path: "",
     exact: true,
-    // component: asyncComponent(() => import("containers/Widgets/index"))
     component: asyncComponent(() => import("containers/Page/private/admin/dashboard"))
   },
   {
-    path: 'user',
+    path: 'account',
     exact: false,
-    component: asyncComponent(() => import("containers/Page/private/admin/User"))
+    component: asyncComponent(() => import("containers/Page/private/admin/Account"))
   },
   {
-    path: 'post',
+    path: 'company',
     exact: false,
-    component: asyncComponent(() => import("containers/Page/private/admin/Post"))
-  },
-  {
-    path: 'tag',
-    exact: false,
-    component: asyncComponent(() => import("containers/Page/private/admin/Tag"))
-  },
-  {
-    path: 'companys',
-    exact: false,
-    component: asyncComponent(() => import("pages/manager/company/Company"))
+    component: asyncComponent(() => import("containers/Page/private/admin/Company"))
   },
   { 
     path: 'users',
@@ -45,7 +34,7 @@ const adminRoutes = [
   // }
 ];
 
-class AppRouter extends Component {
+class AppRouter extends Component { 
   render() {
     const { url, style } = this.props;
     return (

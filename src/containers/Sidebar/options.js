@@ -2,22 +2,27 @@
 const options = [
   {
     key: "",
+    label: "sidebar.home",
+    leftIcon: "ion-pie-graph"
+  },
+  {
+    key: "company",
     label: "sidebar.companys",
     leftIcon: "ion-pie-graph"
   },
   {
     key: "user-group",
-    label: "user.info",
+    label: "user.account",
     leftIcon: "ion-ios-people",
     children: [
       {
-        key: "user/all",
-        label: "sidebar.user_all"
+        key: "account/all",
+        label: "user.info"
       },
-      {
-        key: "user--permission",
-        label: "sidebar.user_permission"
-      },
+      // {
+      //   key: "user--permission",
+      //   label: "sidebar.user_permission"
+      // },
     ]
   },
   // {

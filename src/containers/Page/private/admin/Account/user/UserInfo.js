@@ -6,11 +6,26 @@ import MyForm from 'components/my-form/MyForm';
 
 import PanelWrapper from "containers/Custom/Panel.style";
 const styles={
-textAlign:'center'
-}
+    textAlign:'center'
+};
+const listOption=[
+    {
+        id:"1",
+        name:"Admin",
+        description:"Admin",
+        postID:"80000"
+    },
+    {
+        id:"21",
+        name:"Member",
+        description:"Member",
+        postID:"80000"
+    }
+];
+
 const { Header, Content, Footer } = Layout;
 const Search = Input.Search;   
-class CompanyInfo extends Component{
+class UserInfo extends Component{
     state={
         iSearch:"ALL",
         pageSize:5,
@@ -27,13 +42,6 @@ class CompanyInfo extends Component{
           url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
         }],
     }
-
-    componentWillMount(){
-    }
-   
-    getCompanys=()=>{
-
-    }
     handleCancel = () => this.setState({ previewVisible: false })
 
     handlePreview = (file) => {
@@ -45,10 +53,9 @@ class CompanyInfo extends Component{
   
     handleChange = ({ fileList }) => this.setState({ fileList })
   
-   
     render(){
         const { previewVisible, previewImage, fileList} = this.state;
-        var {companySelected} =this.props;
+        var {userInfo} =this.props;
         var listField=[
             {
                 id:"username",
@@ -60,10 +67,13 @@ class CompanyInfo extends Component{
                 message:'Vui lòng nhập username',
                 typeValidation:"email",
                 messageValidation:'Không phải định dạng email',
-                defaultValue:companySelected.name,
+                defaultValue:userInfo.name,
                 event:{
                     onClick:()=>console.log("event onClick "),
                     onChange:()=>console.log("event onChange "),
+                },
+                style:{
+                    // marginLeft:'20px'
                 },
                 fieldType:{
                     type:"INPUT_TEXT",
@@ -77,7 +87,52 @@ class CompanyInfo extends Component{
                 placeholder:"Enter your password...",
                 required:true,
                 message:'Vui lòng nhập password',
-                defaultValue:companySelected.size,
+                defaultValue:userInfo.size,
+                event:{
+                    onClick:()=>console.log("event onClick "),
+                    onChange:()=>console.log("event onChange "),
+                },
+                fieldType:{
+                    type:"INPUT_NUMBER",
+                },
+                style:{
+                    marginTop:'-15px'
+                },
+                
+            },
+            {
+                id:"role", 
+                label:"Role:", 
+                description:"Password mà bạn đã đăng ký cho tài khoản này.",
+                icon:"lock",
+                placeholder:"Enter your password...",
+                required:true,
+                message:'Vui lòng nhập password',
+                defaultValue:userInfo.Role,
+                event:{
+                    onClick:()=>console.log("event onClick "),
+                    onChange:()=>console.log("event onChange "),
+                },
+                fieldType:{
+                    type:"SELECT",
+                    listOption:{listOption},
+                    mode:'multiple',
+                    size:'default',
+                },
+                style:{
+                    marginTop:'-15px'
+                },
+                
+            },
+            {
+                id:"phone", 
+                label:"Phone:", 
+                description:"Password mà bạn đã đăng ký cho tài khoản này.",
+                icon:"lock",
+                placeholder:"Enter your password...",
+                required:true,
+                message:'Vui lòng nhập password',
+                defaultValue:userInfo.Phone,
                 event:{
                     onClick:()=>console.log("event onClick "),
                     onChange:()=>console.log("event onChange "),
@@ -89,6 +144,49 @@ class CompanyInfo extends Component{
                     marginTop:'-15px'
                 },
             },
+            {
+                id:"role", 
+                label:"Address:", 
+                description:"Password mà bạn đã đăng ký cho tài khoản này.",
+                icon:"lock",
+                placeholder:"Enter your password...",
+                required:true,
+                message:'Vui lòng nhập password',
+                defaultValue:userInfo.Address,
+                event:{
+                    onClick:()=>console.log("event onClick "),
+                    onChange:()=>console.log("event onChange "),
+                },
+                style:{
+                    marginTop:'-15px'
+                },
+                fieldType:{
+                    type:"INPUT_TEXT",
+                },
+                
+            },
+            {
+                id:"birthday",
+                label:"Birthday:",
+                description:"Hãy chọn ngày sinh của bạn.",
+                icon:"date",
+                placeholder:"Enter your birthday",
+                required:true,
+                message:'Vui lòng chọn ngày sinh của bạn',
+                // defaultValue:'1997/07/01',
+                event:{
+                    onClick:()=>console.log("event onClick "),
+                    onChange:()=>console.log("event onChange "),
+                },
+                style:{
+                    marginTop:'-15px'
+                },
+
+                fieldType:{
+                    type:"DATE_PICKER",
+                }
+                
+            }
           ]
         
         const uploadButton = (
@@ -98,13 +196,12 @@ class CompanyInfo extends Component{
         </div>
         );
         const listButton=[
-           
         ]
           
        return (
             <PanelWrapper>
-                <Content style={{ width :'50%' }}>
-                    <Row type="flex" justify="space-between" className="row-button">
+                <Content>
+                    <Row type="flex"  className="row-button">
                         <Col >
                             <Button type="default" onClick={this.showModal}>
                                 <Icon type="edit" theme="outlined" />
@@ -116,24 +213,24 @@ class CompanyInfo extends Component{
                     </Row>
                     <br/>
                     <div style={{display:'flex', flexDirection:'row'}}>
-                        <Content style={{ width :'40%' ,textAlign:'center'}}>
+                        <Content style={{ width :'20%'}}>
                             <div className="clearfix">
-                                <Upload
-                                    action="//jsonplaceholder.typicode.com/posts/"
-                                    listType="picture-card"
-                                    // fileList={fileList}
-                                    onPreview={this.handlePreview}
-                                    onChange={this.handleChange}
-                                    >
-                                    {fileList.length >= 3 ? null : uploadButton}
-                                </Upload>
-                                    <p>{companySelected.name}</p>
+                                    <Upload
+                                        action="//jsonplaceholder.typicode.com/posts/"
+                                        listType="picture-card"
+                                        // fileList={fileList}
+                                        onPreview={this.handlePreview}
+                                        onChange={this.handleChange}
+                                        >
+                                        {fileList.length >= 3 ? null : uploadButton}
+                                    </Upload>
+                                    <p>{userInfo.name}</p>
                                 <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
                                     <img alt="example" style={{ width: '100%' }} src={previewImage} />
                                 </Modal>
                             </div>
                         </Content>
-                        <Content style={{ width :'100%' }}>
+                        <Content style={{float:'left' }}>
                             <MyForm
                                 type="ADD" 
                                 layout="horizontal"
@@ -146,7 +243,6 @@ class CompanyInfo extends Component{
                     </div>
                        
                 </Content>
-
             </PanelWrapper>
             );
     }
@@ -166,4 +262,4 @@ const mapDispatchToProps = (dispatch, props) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CompanyInfo));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserInfo));

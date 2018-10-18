@@ -6,7 +6,7 @@ const rowStyle = {
 };
 const colStyle = {
   marginBottom: '16px',
-  padding:'0px 15px',  
+  padding:'0px 5px',  
 };
 const gutter = 16;
 const basicStyle = {

@@ -61,8 +61,8 @@ class Companys extends Component{
             }
     } 
     getCompanys=(obj)=>{
+        console.log(obj);
         this.setState({companySelected:obj});
-        this.props.getCompany(obj);
     }
     render(){
         // var {organs} = this.props;
@@ -186,12 +186,10 @@ class Companys extends Component{
                             <MyTable styleTable="TABLE_ANTD" data={organs} col={organCol} ObjSetting={objSetting}/>
                         </Row>
                     </Content>
-                      
                     
                 </div>
             </PanelWrapper>
-
-        );
+            );
     }
 }
 const mapStateToProps = state => {

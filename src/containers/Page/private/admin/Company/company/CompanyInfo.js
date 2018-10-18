@@ -98,12 +98,42 @@ class CompanyInfo extends Component{
         </div>
         );
         const listButton=[
-           
+            // {
+            //     name:"Submit",
+            //     title:"Submit",
+            //     description:"Submit data from your form",
+            //     loading:this.state.btnLoadding,
+            //     events:{
+            //         onSubmit: ()=>console.log("submit form login"),
+            //     },
+            //     styles:{
+            //         color:'cyan',
+            //         margin:'5px'
+            //     },
+            //     type:"SUBMIT",
+            //     icon:"save",
+            //     typeButon:"primary"
+            // },
+            // {
+            //     name:"Back",
+            //     title:"Back",
+            //     description:"Back",
+            //     // link:this.props.router.location.pathname,
+            //     onClick:()=>console.log("back"),
+            //     events:()=>console.log("event form"),
+            //     styles:{
+            //         color:'red',
+            //         margin:'5px'
+            //     },
+            //     type:"BACK",
+            //     icon:"rollback",
+            //     typeButon:"primary"
+            // },
         ]
           
        return (
             <PanelWrapper>
-                <Content style={{ width :'50%' }}>
+                <Content >
                     <Row type="flex" justify="space-between" className="row-button">
                         <Col >
                             <Button type="default" onClick={this.showModal}>
@@ -116,7 +146,7 @@ class CompanyInfo extends Component{
                     </Row>
                     <br/>
                     <div style={{display:'flex', flexDirection:'row'}}>
-                        <Content style={{ width :'40%' ,textAlign:'center'}}>
+                        <Content style={{ width :'25%' ,textAlign:'center'}}>
                             <div className="clearfix">
                                 <Upload
                                     action="//jsonplaceholder.typicode.com/posts/"
