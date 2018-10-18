@@ -119,7 +119,6 @@ class Companys extends Component{
             pageSize:this.state.pageSize,
             getObject:this.getCompanys
         }
-        console.log(this.state.companySelected);
         var  organCol=[
             {
                 title: "id",
@@ -184,14 +183,14 @@ class Companys extends Component{
                         <MyTable styleTable="TABLE_ANTD" data={organs} col={organCol} ObjSetting={objSetting}/>
                     </Row>
                 </Content>
-                <Content style={{ paddingLeft:'5px',width:'100%'}}>
                    {
                        (this.state.companySelected!==null)?
+                    <Content style={{ paddingLeft:'5px',width:'100%'}}>
                         <CompanyInfo companySelected={this.state.companySelected}/>
-                        // <div>{this.state.companySelected.name}</div>
+                    </Content>
                        :(<div></div>)
                    }
-                </Content>
+                
             </div>
             );
     }

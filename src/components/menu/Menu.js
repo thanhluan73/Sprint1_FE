@@ -9,6 +9,14 @@ const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
 class MyMenu extends React.Component{
+  state = {
+    collapsed: false,
+  };
+
+  onCollapse = (collapsed) => {
+    console.log(collapsed);
+    this.setState({ collapsed });
+  }
   showContentMenus = (routes) => {
     var result = null;
     if (routes.length > 0) {
@@ -27,7 +35,7 @@ class MyMenu extends React.Component{
         
     }
     return <Switch>{result}</Switch>;
-}
+  }
   render(){
     return(
     <Layout>
@@ -46,34 +54,60 @@ class MyMenu extends React.Component{
           <Breadcrumb.Item>Updating...</Breadcrumb.Item>
           <Breadcrumb.Item>Updating...</Breadcrumb.Item>
         </Breadcrumb>
-        <Layout style={{ padding: '24px 0', background: '#fff' }}>
-          <Sider width={200} style={{ background: '#fff' }}>
+        <Layout style={{ padding: '24px 0',overflow:'auto', background: '#fff',  }}>
+          <Sider 
+            width={200} 
+            style={{ background: '#fff' }}
+            collapsible
+            collapsed={this.state.collapsed}
+            onCollapse={this.onCollapse}
+            >
             <Menu
               mode="inline"
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
               style={{ height: '100%' }}
+
             >
-              <SubMenu key="sub1" title={<span><Icon type="user" />Management</span>}>
+              <SubMenu key="sub1" title={<div><Icon type="user" /><span>Quản lý</span></div>}>
                 <Menu.Item key="1">
-                  <Link to="/companys">Companys</Link>
+                  <Link to="/companys">
+                    <Icon type="pie-chart" />
+                    <span>Công ty</span>
+                  </Link>
                 </Menu.Item>
                 <Menu.Item key="2">
-                  <Link to="/users">Users</Link>
-                </Menu.Item>
-                <Menu.Item key="3">
-                  <Link to="/marketing">Marketing</Link>
+                  <Link to="/users">
+                    <Icon type="pie-chart" />
+                    <span>Users</span>
+                  </Link>
                 </Menu.Item>
                 <Menu.Item key="4">
-                  <Link to="/listrole">List role</Link>
+                  <Link to="/list-role">
+                    <Icon type="pie-chart" />
+                    <span>List role</span>
+                  </Link>
                 </Menu.Item>
               </SubMenu>
-              <SubMenu key="sub2" title={<span><Icon type="laptop" />I am updating...</span>}>
-                <MyMenu.Item key="5">I am updating...</MyMenu.Item>
+              <SubMenu key="sub2" title={<div><Icon type="user" /><span>I am updating ...</span></div>}>
+                <Menu.Item key="5">
+                  <Link to="/list-role">
+                    <Icon type="pie-chart" />
+                    <span>I am updating...</span>
+                  </Link>
+                </Menu.Item>
               </SubMenu>
             </Menu>
           </Sider>
-          <Content style={{ padding: '0 5px', minHeight: 280 }}>
+          <Content style={
+            { 
+              padding: '0 5px',
+              minHeight: 280,
+              flexDirection: 'row', 
+              overflowX: 'hidden'
+              // overflowX:'auto'
+            }
+            }>
             {this.showContentMenus(adminRoutes)}
           </Content>
         </Layout>

@@ -1,0 +1,27 @@
+.container_demo{ 
+    /* position: absolute;  */
+    float: left;
+    background-color: red;
+    overflow-y: auto;
+    width:'100px';
+    border:'1px solid cyan';
+}
+.child_container{
+    /* position: relative;  */
+    width :'50px';
+    height: '100px';
+    float: left;
+    border:'10px solid red';
+    background-color: 'blue'
+}
+.child{
+    float:'right';
+    background-color:red;
+    height: '100px';
+    overflow-y: auto;
+    width:'200px';
+    border:'1px solid cyan';
+}
+.container_demo{ 
+    display: inline-block; 
+}
