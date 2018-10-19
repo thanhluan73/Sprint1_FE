@@ -50,13 +50,13 @@ export class App extends Component {
                 <Content
                   className="isomorphicContent"
                   style={{
-                    paddingTop: '3%',
+                    paddingTop: '40px',
                     flexShrink: '0',
                     background: '#f1f3f6',
                     position: 'relative'
                   }}
                 >
-                  <div style={{paddingTop:"5%",paddingLeft:'2%'}}>
+                  <div style={{paddingTop: '4%', paddingLeft: '2%'}}>
                     <Breadcrumb/>
                     <AppRouter url={url} />
                   </div>

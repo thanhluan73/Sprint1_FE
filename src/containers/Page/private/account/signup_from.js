@@ -3,6 +3,7 @@ import { Input, Select } from 'antd';
 import Form from 'components/uielements/form';
 import Checkbox from 'components/uielements/checkbox';
 import Button from 'components/uielements/button';
+import { relative } from 'path';
 
 // import Notification from 'components/notification';
 
@@ -77,7 +78,7 @@ class SignupForm extends Component {
                                         message: 'Please input your Last name!',
                                     },
                                 ],
-                            })(<Input size="large" placeholder="Last name" />)}
+                            })(<Input size="large" style={{position: relative ,marginLeft: '10px'}} placeholder="Last name" />)}
                         </FormItem>
                     </div>
 
