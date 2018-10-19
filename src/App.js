@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     return (<div>
       {
-          (!this.state.login)?  this.showContentMenus(publicRoutes): <Menu/>
+          (this.state.login)?  this.showContentMenus(publicRoutes): <Menu/>
       }
     </div>
     );

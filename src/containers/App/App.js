@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Layout,Icon,Row,Col } from 'antd';
+import { Layout,Icon,Row,Col,Drawer } from 'antd';
 import { Debounce } from 'react-throttle';
 import WindowResizeListener from 'react-window-size-listener';
 import { ThemeProvider } from 'styled-components';
@@ -63,20 +63,32 @@ export class App extends Component {
                 <Content
                   className="isomorphicContent"
                   style={{
-                    paddingTop: '3%',
+                    paddingTop: '40px',
                     flexShrink: '0',
                     background: '#f1f3f6',
                     position: 'relative',
+                    // display:'flex',
+                    // flexDirection:'row'
                   }}
                 >
                   
-                    <LayoutWrapper>
-                      <div style={{width:'100%'}}>
+                    {/* <LayoutWrapper> */}
+                      <div style={{paddingTop:'4%',paddingLeft:'2%'}}>
 
                         <Breadcrumb/>
                         <AppRouter url={url} />
                       </div>
-                    </LayoutWrapper>
+                      {/* <Drawer
+                          title="Basic Drawer"
+                          placement="right"
+                          closable={true}
+                          visible={true}
+                        >
+                          <p>Some contents...</p>
+                          <p>Some contents...</p>
+                          <p>Some contents...</p>
+                        </Drawer> */}
+                    {/* </LayoutWrapper> */}
                 </Content>
                 {/* <Footer
                   style={{
