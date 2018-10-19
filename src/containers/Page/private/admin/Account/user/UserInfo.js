@@ -233,7 +233,7 @@ class UserInfo extends Component{
                         <Content style={{float:'left' }}>
                             <MyForm
                                 type="ADD" 
-                                layout="horizontal"
+                                layout="vertical"
                                 listField={listField}
                                 styles={styles}
                                 onSubmit={this.handleSubmit}

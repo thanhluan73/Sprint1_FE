@@ -8,7 +8,9 @@ const rowStyle = {
 const colStyle = {
   marginBottom: '16px',
   padding:'0px 5px',  
-  height:450,
+  // height:'100%',
+  overflow:'auto',
+  height:600,
 };
 const gutter = 16;
 const basicStyle = {

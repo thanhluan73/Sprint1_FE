@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Layout,Icon } from 'antd';
+import { Layout,Icon,Row,Col } from 'antd';
 import { Debounce } from 'react-throttle';
 import WindowResizeListener from 'react-window-size-listener';
 import { ThemeProvider } from 'styled-components';
 // import authAction from 'redux/auth/actions';
 import appActions from 'redux/app/actions';
 import Sidebar from '../Sidebar/Sidebar';
+import Expandbar from '../Expandbar/Expandbar';
 import Topbar from 'containers/Topbar/Topbar';
 import AppRouter from './AppRouter';
 import { siteConfig } from '../../settings';
@@ -15,7 +16,9 @@ import { themeConfig } from '../../settings';
 import AppHolder from './commonStyle';
 import './global.css';
 import Breadcrumb from 'components/breadcrumb/Breadcrumb';
- 
+import basicStyle from "settings/basicStyle.js";
+
+import LayoutWrapper from "components/utility/layoutWrapper";
 const { Header,Content, Footer } = Layout;
 // const { logout } = authAction;
 const { toggleAll } = appActions;
@@ -24,6 +27,16 @@ export class App extends Component {
     const { url } = this.props.match;
     const { height } = this.props;
     const appHeight = window.innerHeight;
+    const pageStyle = {
+      display: "flex",
+      flexFlow: "row nowrap",
+      flexDirection: 'column',
+      alignItems: "flex-start",
+      overflow: "hidden",
+      width: '100%',
+      paddingTop:0
+  };
+  const { rowStyle, colStyle } = basicStyle;
     return (
       <ThemeProvider theme={themes[themeConfig.theme]}>
         <AppHolder>
@@ -53,13 +66,17 @@ export class App extends Component {
                     paddingTop: '3%',
                     flexShrink: '0',
                     background: '#f1f3f6',
-                    position: 'relative'
+                    position: 'relative',
                   }}
                 >
-                  <div style={{paddingTop:"5%",paddingLeft:'2%'}}>
-                    <Breadcrumb/>
-                    <AppRouter url={url} />
-                  </div>
+                  
+                    <LayoutWrapper>
+                      <div style={{width:'100%'}}>
+
+                        <Breadcrumb/>
+                        <AppRouter url={url} />
+                      </div>
+                    </LayoutWrapper>
                 </Content>
                 {/* <Footer
                   style={{
