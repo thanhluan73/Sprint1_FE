@@ -9,13 +9,18 @@ import PanelWrapper from "containers/Custom/Panel.style";
 const { Header, Content, Footer } = Layout;
 const Search = Input.Search;   
 class Companys extends Component{
-    state={
-        iSearch:"ALL",
-        pageSize:5,
-        pageIndex:1,
-        listPageVisit:[1],
-        listPageVisitFilter:[1],
-        userSelected:null
+    constructor(props){
+        super(props)
+
+        this.state={
+            iSearch:"ALL",
+            pageSize:5,
+            pageIndex:1,
+            listPageVisit:[1],
+            listPageVisitFilter:[1],
+            userSelected:null,
+            fullScreenMode: false,
+        }
     }
     componentWillMount(){
         // this.props.fetchingCompany();
@@ -63,6 +68,13 @@ class Companys extends Component{
     getUser=(obj)=>{
         this.setState({userSelected:obj});
         this.props.getUser(obj);
+    }
+    handleFullScreenMode=()=> {
+        this.setState(() => {
+            return {
+                fullScreenMode: !this.state.fullScreenMode
+            };
+        });
     }
     render(){
         // var {organs} = this.props;
@@ -153,6 +165,7 @@ class Companys extends Component{
             pageSize:this.state.pageSize,
             getObject:this.getUser
         }
+        const ButtonGroup = Button.Group;
         var  organCol=[
             {
                 title: "id",
@@ -187,7 +200,7 @@ class Companys extends Component{
            
         ];
         return (
-            <PanelWrapper>
+            <PanelWrapper className={this.state.fullScreenMode ? "full-screen-mode" : ""}>
                 <div  style={{display:'flex', flexDirection:'row'}}>
                     <Content >
                         <Row type="flex" justify="start" className="row-button">
@@ -200,7 +213,10 @@ class Companys extends Component{
                                 </Button>{' '}
                                 <Button type="default" onClick={this.showModal}>
                                     <Icon type="sort-ascending"/>Sort  
-                                </Button>
+                                </Button>{' '}
+                                <ButtonGroup className="form-header__control">
+                                    <Button icon={this.state.fullScreenMode ? "shrink" : "arrows-alt"} className="form-header__control" onClick={this.handleFullScreenMode} />
+                                </ButtonGroup>
                             </Col>
                             <Col>
                             </Col>

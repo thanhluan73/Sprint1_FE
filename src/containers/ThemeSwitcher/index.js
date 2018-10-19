@@ -1,17 +1,79 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Actions from '../../redux/themeSwitcher/actions.js';
 import Switcher from '../../components/themeSwitcher/themeSwitcher';
 import LanguageSwitcher from '../LanguageSwitcher';
 import Themes from './config';
-import bucketSVG from '../../image/bucket.svg';
+import bucketSVG from 'images/image-cpn/bucket.svg';
 import IntlMessages from '../../components/utility/intlMessages';
 import ThemeSwitcherStyle from './themeSwitcher.style';
 
-const { switchActivation, changeTheme } = Actions;
+import Image from 'images/image-cpn/user3.png';
+import TopbarDropdownWrapper from 'containers/Topbar/topbarDropdown.style';
+import Actions from '../../redux/themeSwitcher/actions.js';
+const { switchActivation, changeTheme } = Actions;  
+const demoMassage = [
+  {
+    id: 1,
+    name: 'David Doe',
+    time: '3 minutes ago',
+    massage:
+      'A National Book Award Finalist An Edgar Award Finalist A California Book Award Gold Medal Winner'
+  },
+  {
+    id: 2,
+    name: 'Navis Doe',
+    time: '4 minutes ago',
+    massage:
+      'A National Book Award Finalist An Edgar Award Finalist A California Book Award Gold Medal Winner'
+  },
+  {
+    id: 3,
+    name: 'Emanual Doe',
+    time: '5 minutes ago',
+    massage:
+      'A National Book Award Finalist An Edgar Award Finalist A California Book Award Gold Medal Winner'
+  },
+  {
+    id: 4,
+    name: 'Dowain Doe',
+    time: '6 minutes ago',
+    massage:
+      'A National Book Award Finalist An Edgar Award Finalist A California Book Award Gold Medal Winner'
+  }
+];
 
 class ThemeSwitcher extends Component {
   render() {
+    const { customizedTheme } = this.props;
+      const content = (
+        <TopbarDropdownWrapper className="topbarMessage withImg">
+          <div className="isoDropdownHeader">
+            <h3>
+              <IntlMessages id="sidebar.message" />
+            </h3>
+          </div>
+          <div className="isoDropdownBody">
+            {demoMassage.map(massage => (
+              <a className="isoDropdownListItem" key={massage.id}>
+                <div className="isoImgWrapper">
+                  <img alt="#" src={Image} />
+                </div>
+  
+                <div className="isoListContent">
+                  <div className="isoListHead">
+                    <h5>{massage.name}</h5>
+                    <span className="isoDate">{massage.time}</span>
+                  </div>
+                  <p>{massage.massage}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+          <a className="isoViewAllBtn">
+            <IntlMessages id="topbar.viewAll" />
+          </a>
+        </TopbarDropdownWrapper>
+      );
     const {
       isActivated,
       // changeThemes,
@@ -30,35 +92,14 @@ class ThemeSwitcher extends Component {
       >
         <div className="componentTitleWrapper" style={styleButton}>
           <h3 className="componentTitle">
-            <IntlMessages id="themeSwitcher.settings" />
+            {/* <IntlMessages id="themeSwitcher.settings" /> */}
+            Chat với tui đi
           </h3>
         </div>
 
         <div className="SwitcherBlockWrapper">
-          {/*<Switcher
-            config={Themes.changeThemes}
-            changeTheme={changeTheme}
-            selectedId={changeThemes.themeName}
-          />*/}
-          <Switcher
-            config={Themes.sidebarTheme}
-            changeTheme={changeTheme}
-            selectedId={sidebarTheme.themeName}
-          />
-
-          <Switcher
-            config={Themes.topbarTheme}
-            changeTheme={changeTheme}
-            selectedId={topbarTheme.themeName}
-          />
-
-          <Switcher
-            config={Themes.layoutTheme}
-            changeTheme={changeTheme}
-            selectedId={layoutTheme.themeName}
-          />
-          <LanguageSwitcher />
-        </div>
+         {content}
+         </div>
 
         <div className="purchaseBtnWrapper">
           <a
@@ -66,11 +107,12 @@ class ThemeSwitcher extends Component {
             className="purchaseBtn"
             style={styleButton}
           >
-            <IntlMessages id="themeSwitcher.purchase" />
+            {/* <IntlMessages id="themeSwitcher.purchase" /> */}
+            Demo thôi
           </a>
         </div>
 
-        <button
+        {/* <button
           type="primary"
           className="switcherToggleBtn"
           style={styleButton}
@@ -79,7 +121,7 @@ class ThemeSwitcher extends Component {
           }}
         >
           <img src={process.env.PUBLIC_URL + bucketSVG} alt="bucket" />
-        </button>
+        </button> */}
       </ThemeSwitcherStyle>
     );
   }
@@ -87,6 +129,7 @@ class ThemeSwitcher extends Component {
 function mapStateToProps(state) {
   return {
     ...state.ThemeSwitcher,
+    customizedTheme: state.ThemeSwitcher.topbarTheme,
     LanguageSwitcher: state.LanguageSwitcher
   };
 }

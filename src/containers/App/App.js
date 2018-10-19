@@ -18,8 +18,11 @@ import './global.css';
 import Breadcrumb from 'components/breadcrumb/Breadcrumb';
 import basicStyle from "settings/basicStyle.js";
 
+import ThemeSwitcher from '../../containers/ThemeSwitcher';
 import LayoutWrapper from "components/utility/layoutWrapper";
-const { Header,Content, Footer } = Layout;
+
+// import MySidebar from 'containers/Sidebar/MySidebar';
+const { Header,Content, Footer ,Sider} = Layout;
 // const { logout } = authAction;
 const { toggleAll } = appActions;
 export class App extends Component {
@@ -41,19 +44,21 @@ export class App extends Component {
       <ThemeProvider theme={themes[themeConfig.theme]}>
         <AppHolder>
           <Layout style={{ height: appHeight }}>
-            <Debounce time="1000" handler="onResize">
-              <WindowResizeListener
-                onResize={windowSize =>
-                  this.props.toggleAll(
-                    windowSize.windowWidth,
-                    windowSize.windowHeight
-                  )
-                }
-              />
-            </Debounce>
-            <Topbar url={url} />
+            <Header style={{padding:0}}>
+              <Debounce time="1000" handler="onResize">
+                <WindowResizeListener
+                  onResize={windowSize =>
+                    this.props.toggleAll(
+                      windowSize.windowWidth,
+                      windowSize.windowHeight
+                    )
+                  }
+                />
+              </Debounce> 
+              <Topbar url={url} />
+            </Header>
             <Layout style={{ flexDirection: 'row', overflowX: 'hidden' }}>
-              <Sidebar url={url} />
+                <Sidebar url={url} />
               <Layout
                 className="isoContentMainLayout"
                 style={{     
@@ -63,44 +68,19 @@ export class App extends Component {
                 <Content
                   className="isomorphicContent"
                   style={{
-                    paddingTop: '40px',
                     flexShrink: '0',
                     background: '#f1f3f6',
                     position: 'relative',
-                    // display:'flex',
-                    // flexDirection:'row'
                   }}
                 >
-                  
-                    {/* <LayoutWrapper> */}
-                      <div style={{paddingTop:'4%',paddingLeft:'2%'}}>
-
+                      <div style={{paddingTop:'2%',paddingLeft:'2%'}}>
                         <Breadcrumb/>
                         <AppRouter url={url} />
                       </div>
-                      {/* <Drawer
-                          title="Basic Drawer"
-                          placement="right"
-                          closable={true}
-                          visible={true}
-                        >
-                          <p>Some contents...</p>
-                          <p>Some contents...</p>
-                          <p>Some contents...</p>
-                        </Drawer> */}
-                    {/* </LayoutWrapper> */}
                 </Content>
-                {/* <Footer
-                  style={{
-                    background: '#ffffff',
-                    textAlign: 'center',
-                    borderTop: '1px solid #ededed'
-                  }}
-                >
-                  {siteConfig.footerText}
-                </Footer> */}
               </Layout>
             </Layout>
+            <ThemeSwitcher />
           </Layout>
         </AppHolder>
       </ThemeProvider>

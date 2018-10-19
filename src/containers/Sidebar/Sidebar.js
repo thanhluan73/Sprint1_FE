@@ -13,6 +13,7 @@ import Logo from 'components/utility/logo';
 import themes from 'settings/themes';
 import { themeConfig } from 'settings';
 
+import MySidebar from 'containers/Sidebar/MySidebar';
 const SubMenu = Menu.SubMenu;
 const { Sider } = Layout; 
  
@@ -144,6 +145,7 @@ class Sidebar extends Component {
       backgroundColor: customizedTheme.backgroundColor,
       // backgroundColor: '#fafafa',
       // marginTop:'60px'
+      height:665
     };
     const submenuStyle = {
       backgroundColor: 'rgba(0,0,0,0.3)',
@@ -168,7 +170,8 @@ class Sidebar extends Component {
           onMouseLeave={onMouseLeave}
           style={styling}
         >
-          <Logo collapsed={collapsed} />
+        {/* <MySidebar/> */}
+          {/* <Logo collapsed={collapsed} /> */}
          
           <Scrollbars style={{ height: height - 70 }}>
           <p style={{textAlign:'center'}}>

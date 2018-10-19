@@ -10,9 +10,10 @@ import TopbarUser from "./topbarUser";
 import TopbarMessage from './topbarMessage';
 import TopbarSearch from './topbarSearch';
 import TopbarNotification from './topbarNotification';
-
+import Helper from './Helper';
 import Logo from 'components/utility/logo';
-
+import Actions from '../../redux/themeSwitcher/actions.js';
+const { switchActivation, changeTheme } = Actions;  
 const { Header } = Layout;
 const { toggleCollapsed } = appActions;
 const customizedTheme = themes[themeConfig.theme];
@@ -23,13 +24,13 @@ class Topbar extends Component {
    
 }
   render() {
-    const { toggleCollapsed } = this.props;
+    const { toggleCollapsed ,switchActivation} = this.props;
     const collapsed = this.props.collapsed && !this.props.openDrawer;
     const styling = {
       background: customizedTheme.backgroundColor,
       position: "fixed",
       width: "100%",
-      height: 70
+      height: 65
     };
     const Search = Input.Search;
     return (
@@ -41,18 +42,12 @@ class Topbar extends Component {
           }
         >
           <div className="isoLeft">
-          {
+          {/* {
             (collapsed)?
             <Logo/>
             :<div></div>
-          }
-            {/* <button
-              className={
-                collapsed ? "triggerBtn menuCollapsed" : "triggerBtn menuOpen"
-              }
-              style={{ color: customizedTheme.textColor }}
-              onClick={toggleCollapsed}
-            /> */}
+          } */}
+          PROPTECH PLUS
             <Search
                 placeholder="Input search text"
                 onSearch={val=>this.searchHandle(val)}
@@ -74,11 +69,18 @@ class Topbar extends Component {
             >
               <TopbarNotification />
             </li>
-            <li
+            {/* <li
               onClick={() => this.setState({ selectedItem: "user" })}
               className="isoUser"
             >
               <TopbarUser />
+            </li> */}
+            <li
+              onClick={() => switchActivation()}
+              className="isoUser"
+              // className="switcherToggleBtn"
+            >
+                <Helper/>
             </li>
           </ul>
         </Header>
@@ -91,5 +93,5 @@ export default connect(
   state => ({
     ...state.App
   }),
-  { toggleCollapsed }
+  { toggleCollapsed, switchActivation }
 )(Topbar);
