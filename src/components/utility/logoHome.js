@@ -4,7 +4,7 @@ import { siteConfig } from '../../settings';
 
 export default ({ collapsed }) => {
   return (
-    <div className="isoLogoWrapper">
+    <div className="isoLogoHome" style={{marginRight:'27px',marginTop:'12px'}}>
       {collapsed ? (
         <div>
           <h3 >

@@ -11,6 +11,7 @@ import TopbarMessage from './topbarMessage';
 import TopbarSearch from './topbarSearch';
 import TopbarNotification from './topbarNotification';
 
+import LogoHome from 'components/utility/logoHome';
 
 const { Header } = Layout;
 const { toggleCollapsed } = appActions;
@@ -40,6 +41,11 @@ class Topbar extends Component {
           }
         >
           <div className="isoLeft">
+          {
+            (collapsed)?
+            <LogoHome />
+            :<div></div>
+          }
             {/* <button
               className={
                 collapsed ? "triggerBtn menuCollapsed" : "triggerBtn menuOpen"

@@ -190,19 +190,19 @@ class Companys extends Component{
             <PanelWrapper>
                 <div  style={{display:'flex', flexDirection:'row'}}>
                     <Content >
-                        <Row type="flex" justify="space-between" className="row-button">
+                        <Row type="flex" justify="start" className="row-button">
                             <Col >
                                 <Button type="primary" onClick={this.showModal}>
                                     <Icon type="user-add" theme="outlined" />Add User 
-                                </Button>
-                            </Col>
-                            <Col>
+                                </Button>{' '}
                                 <Button type="default" onClick={this.showModal}>
                                     <Icon type="filter" theme="outlined" />Filter 
                                 </Button>{' '}
                                 <Button type="default" onClick={this.showModal}>
                                     <Icon type="sort-ascending"/>Sort  
                                 </Button>
+                            </Col>
+                            <Col>
                             </Col>
                         </Row>
                         <br/>

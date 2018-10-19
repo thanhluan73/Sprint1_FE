@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import clone from 'clone';
 import { Link } from 'react-router-dom';
 import { Layout,Icon, Button } from 'antd';
-import options from './options';
+import options from 'containers/Expandbar/options';
 import Scrollbars from 'components/utility/customScrollBar.js';
 import Menu from 'components/uielements/menu';
 import IntlMessages from 'components/utility/intlMessages';
-import SidebarWrapper from './sidebar.style';
+import ExpandbarWrapper from 'containers/Expandbar/Expandbar.style';
 import appActions from 'redux/app/actions';
 import Logo from 'components/utility/logo';
 import themes from 'settings/themes';
@@ -29,7 +29,7 @@ const stripTrailingSlash = str => {
   return str;
 };
 
-class Sidebar extends Component {
+class Expandbar extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -143,7 +143,7 @@ class Sidebar extends Component {
     const styling = {
       backgroundColor: customizedTheme.backgroundColor,
       // backgroundColor: '#fafafa',
-      // marginTop:'60px'
+      
     };
     const submenuStyle = {
       backgroundColor: 'rgba(0,0,0,0.3)',
@@ -157,19 +157,18 @@ class Sidebar extends Component {
     
     const collapsedClassName = this.props.collapsed && !this.props.openDrawer;
     return (
-      <SidebarWrapper>
+      <ExpandbarWrapper>
         <Sider
           trigger={null}
           collapsible={true}
           collapsed={collapsed}
           width={240}
-          className="isomorphicSidebar"
+          className="isomorphicExpandbar"
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           style={styling}
         >
           <Logo collapsed={collapsed} />
-         
           <Scrollbars style={{ height: height - 70 }}>
           <p style={{textAlign:'center'}}>
             <button
@@ -202,7 +201,7 @@ class Sidebar extends Component {
             </Menu>
           </Scrollbars>
         </Sider>
-      </SidebarWrapper>
+      </ExpandbarWrapper>
     );
   }
 }
@@ -213,4 +212,4 @@ export default connect(
     height: state.App.height
   }),
   { toggleOpenDrawer, changeOpenKeys, changeCurrent, toggleCollapsed, }
-)(Sidebar);
+)(Expandbar);
