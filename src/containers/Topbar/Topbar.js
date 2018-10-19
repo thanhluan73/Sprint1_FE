@@ -10,10 +10,9 @@ import TopbarUser from "./topbarUser";
 import TopbarMessage from './topbarMessage';
 import TopbarSearch from './topbarSearch';
 import TopbarNotification from './topbarNotification';
-import Helper from './Helper';
-import Logo from 'components/utility/logo';
-import Actions from '../../redux/themeSwitcher/actions.js';
-const { switchActivation, changeTheme } = Actions;  
+
+import LogoHome from 'components/utility/logoHome';
+
 const { Header } = Layout;
 const { toggleCollapsed } = appActions;
 const customizedTheme = themes[themeConfig.theme];
@@ -44,7 +43,7 @@ class Topbar extends Component {
           <div className="isoLeft">
           {/* {
             (collapsed)?
-            <Logo/>
+            <LogoHome />
             :<div></div>
           } */}
           PROPTECH PLUS
