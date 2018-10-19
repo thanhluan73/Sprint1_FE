@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Layout } from 'antd';
+import { Layout,Icon } from 'antd';
 import { Debounce } from 'react-throttle';
 import WindowResizeListener from 'react-window-size-listener';
 import { ThemeProvider } from 'styled-components';
@@ -14,8 +14,9 @@ import themes from '../../settings/themes';
 import { themeConfig } from '../../settings';
 import AppHolder from './commonStyle';
 import './global.css';
+import Breadcrumb from 'components/breadcrumb/Breadcrumb';
  
-const { Content, Footer } = Layout;
+const { Header,Content, Footer } = Layout;
 // const { logout } = authAction;
 const { toggleAll } = appActions;
 export class App extends Component {
@@ -42,22 +43,25 @@ export class App extends Component {
               <Sidebar url={url} />
               <Layout
                 className="isoContentMainLayout"
-                style={{
+                style={{     
                   height: height
                 }}
               >
                 <Content
                   className="isomorphicContent"
                   style={{
-                    padding: '40px 0 0',
+                    paddingTop: '3%',
                     flexShrink: '0',
                     background: '#f1f3f6',
                     position: 'relative'
                   }}
                 >
-                  <AppRouter url={url} />
+                  <div style={{paddingTop:"5%",paddingLeft:'2%'}}>
+                    <Breadcrumb/>
+                    <AppRouter url={url} />
+                  </div>
                 </Content>
-                <Footer
+                {/* <Footer
                   style={{
                     background: '#ffffff',
                     textAlign: 'center',
@@ -65,7 +69,7 @@ export class App extends Component {
                   }}
                 >
                   {siteConfig.footerText}
-                </Footer>
+                </Footer> */}
               </Layout>
             </Layout>
           </Layout>

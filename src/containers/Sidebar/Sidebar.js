@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import clone from 'clone';
 import { Link } from 'react-router-dom';
-import { Layout } from 'antd';
+import { Layout,Icon, Button } from 'antd';
 import options from './options';
 import Scrollbars from 'components/utility/customScrollBar.js';
 import Menu from 'components/uielements/menu';
@@ -122,6 +122,17 @@ class Sidebar extends Component {
       }
       return;
     };
+    const onConlapseMenu = event => {
+      if (openDrawer === false) {
+        this.props.toggleCollapsed();
+        this.props.toggleOpenDrawer();
+      }
+      if (openDrawer === true) {
+        this.props.toggleCollapsed();
+        this.props.toggleOpenDrawer();
+      }
+      return;
+    };
     const onMouseLeave = () => {
       if (openDrawer === true) {
         toggleOpenDrawer();
@@ -130,15 +141,21 @@ class Sidebar extends Component {
     };
     const customizedTheme = themes[themeConfig.theme];
     const styling = {
-      backgroundColor: customizedTheme.backgroundColor
+      backgroundColor: customizedTheme.backgroundColor,
+      // backgroundColor: '#fafafa',
+      
     };
     const submenuStyle = {
       backgroundColor: 'rgba(0,0,0,0.3)',
-      color: customizedTheme.textColor
+      // backgroundColor: '#fafafa',
+      color: customizedTheme.textColor,
     };
     const submenuColor = {
       color: customizedTheme.textColor
     };
+    const { toggleCollapsed } = this.props;
+    
+    const collapsedClassName = this.props.collapsed && !this.props.openDrawer;
     return (
       <SidebarWrapper>
         <Sider
@@ -153,6 +170,21 @@ class Sidebar extends Component {
         >
           <Logo collapsed={collapsed} />
           <Scrollbars style={{ height: height - 70 }}>
+          <p style={{textAlign:'center'}}>
+            <button
+              className={
+                collapsedClassName ? "triggerBtn menuCollapsed" : "triggerBtn menuOpen"
+              }
+              style={{border:'none', backgroundColor: '#fafafa', color: customizedTheme.textColor,}}
+              onClick={onConlapseMenu}
+            >
+            {
+              (collapsed)?
+              <Icon type="right-circle" theme="twoTone" />
+              :<Icon type="left-circle" theme="twoTone" />
+            }
+            </button>
+          </p>
             <Menu
               onClick={this.handleClick}
               theme="dark"
@@ -161,6 +193,7 @@ class Sidebar extends Component {
               openKeys={collapsed ? [] : app.openKeys}
               selectedKeys={app.current}
               onOpenChange={this.onOpenChange}
+              style={{padding:0}}
             >
               {options.map(singleOption =>
                 this.getMenuItem({ submenuStyle, submenuColor, singleOption })
@@ -178,5 +211,5 @@ export default connect(
     app: state.App,
     height: state.App.height
   }),
-  { toggleOpenDrawer, changeOpenKeys, changeCurrent, toggleCollapsed }
+  { toggleOpenDrawer, changeOpenKeys, changeCurrent, toggleCollapsed, }
 )(Sidebar);

@@ -35,7 +35,7 @@ export default function appReducer(state = initState, action) {
     case actions.CLOSE_ALL:
       return { ...state, current: [], openKeys: [] };
     default:
-      return state;
+      return state; 
   }
   return state;
 }

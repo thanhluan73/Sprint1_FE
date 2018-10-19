@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { InputSearch } from '../uielements/input';
+import { InputSearch } from 'components/uielements/input';
 import TopbarSearchModal from './topbarSearchModal.style';
 
 class Searchbar extends Component {

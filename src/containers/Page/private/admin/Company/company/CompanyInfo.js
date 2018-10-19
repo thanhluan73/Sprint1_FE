@@ -166,7 +166,7 @@ class CompanyInfo extends Component{
                         <Content style={{ width :'100%' }}>
                             <MyForm
                                 type="ADD" 
-                                layout="horizontal"
+                                layout="vertical"
                                 listField={listField}
                                 styles={styles}
                                 onSubmit={this.handleSubmit}

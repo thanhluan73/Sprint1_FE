@@ -34,7 +34,7 @@ export default class extends React.Component {
                 <div style={pageStyle}>
                     <Row style={rowStyle} gutter={0} justify='start'>
                         {/* config menu */}
-                        <Col md={6} sm={24} xs={24} style={colStyle} className="inlineCollapse">
+                        <Col md={4} sm={24} xs={24} style={colStyle} className="inlineCollapse">
                             <EditorMenu url={url} options={options} />
                         </Col>
                         {/* table data */}
@@ -43,7 +43,7 @@ export default class extends React.Component {
                         </Col>
                         {
                         (this.state.userSelected!==null)?
-                            <Col md={13} sm={24} xs={24} style={colStyle}>
+                            <Col md={10} sm={24} xs={24} style={colStyle}>
                                 <UserInfo userInfo={this.state.userSelected}/>
                             </Col>
                         :(<div></div>)

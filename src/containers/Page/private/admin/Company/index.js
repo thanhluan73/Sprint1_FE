@@ -28,7 +28,8 @@ export default class extends React.Component {
             flexDirection: 'column',
             alignItems: "flex-start",
             overflow: "hidden",
-            width: '100%'
+            width: '100%',
+            paddingTop:0
         };
         return (
             <LayoutWrapper>

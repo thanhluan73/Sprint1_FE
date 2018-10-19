@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import IntlMessages from '../../components/utility/intlMessages';
 import TopbarDropdownWrapper from './topbarDropdown.style';
 
-import Image from '../../image/user3.png';
+import Image from 'images/image-cpn/user3.png';
 
 const demoMassage = [
   {
@@ -100,7 +100,7 @@ class TopbarMessage extends Component {
         </div>
       </Popover>
     );
-  }
+  } 
 }
 
 export default connect(state => ({
