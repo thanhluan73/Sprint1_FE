@@ -30,7 +30,7 @@ class Topbar extends Component {
       background: customizedTheme.backgroundColor,
       position: "fixed",
       width: "100%",
-      height: 65
+      height: 70
     };
     const Search = Input.Search;
     return (
@@ -38,7 +38,8 @@ class Topbar extends Component {
         <Header
           style={styling}
           className={
-            collapsed ? "isomorphicTopbar collapsed" : "isomorphicTopbar"
+            // collapsed ? "isomorphicTopbar collapsed" : "isomorphicTopbar"
+            'isomorphicTopbar'
           }
         >
           <div className="isoLeft">
@@ -47,7 +48,7 @@ class Topbar extends Component {
             <LogoHome />
             :<div></div>
           } */}
-          PROPTECH PLUS
+          <h3 style={{position:'absolute', left:'50px'}}>PROPTECH PLUS</h3>
             <Search
                 placeholder="Input search text"
                 onSearch={val=>this.searchHandle(val)}

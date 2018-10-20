@@ -16,8 +16,8 @@ const options = [
     leftIcon: "ion-ios-people",
     children: [
       {
-        key: "account/all",
-        label: "user.info"
+        key: "account",
+        label: "user.info" 
       },
       // {
       //   key: "user--permission",
