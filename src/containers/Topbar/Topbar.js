@@ -10,9 +10,10 @@ import TopbarUser from "./topbarUser";
 import TopbarMessage from './topbarMessage';
 import TopbarSearch from './topbarSearch';
 import TopbarNotification from './topbarNotification';
-
+import Helper from './Helper';
 import LogoHome from 'components/utility/logoHome';
-
+import Actions from '../../redux/themeSwitcher/actions.js';
+const { switchActivation, changeTheme } = Actions;  
 const { Header } = Layout;
 const { toggleCollapsed } = appActions;
 const customizedTheme = themes[themeConfig.theme];
