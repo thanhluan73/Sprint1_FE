@@ -144,8 +144,8 @@ class Sidebar extends Component {
     const styling = {
       backgroundColor: customizedTheme.backgroundColor,
       // backgroundColor: '#fafafa',
-      // marginTop:'60px'
-      height:665
+      marginTop:'2%',
+      // height:
     };
     const submenuStyle = {
       backgroundColor: 'rgba(0,0,0,0.3)',
@@ -179,13 +179,13 @@ class Sidebar extends Component {
               className={
                 collapsedClassName ? "triggerBtn menuCollapsed" : "triggerBtn menuOpen"
               }
-              style={{border:'none', backgroundColor: '#fafafa', color: customizedTheme.textColor,}}
+              style={{border:'none', backgroundColor: '#2e3445', color: customizedTheme.textColor, padding: '10px 10px'}}
               onClick={onConlapseMenu}
             >
             {
               (collapsed)?
-              <Icon type="right-circle" theme="twoTone" />
-              :<Icon type="left-circle" theme="twoTone" />
+              <Icon type="right-circle" theme="twoTone" className="iconLeftCircle"/>
+              :<Icon type="left-circle" theme="twoTone" className="iconLeftCircle"/>
             }
             </button>
           </p>
