@@ -74,7 +74,7 @@ export class App extends Component {
                   }}
                 >
                       <div style={{paddingTop:'2%',paddingLeft:'2%'}}>
-                        <Breadcrumb/>
+                        
                         <AppRouter url={url} />
                       </div>
                 </Content>

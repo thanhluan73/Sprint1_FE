@@ -144,8 +144,6 @@ class Sidebar extends Component {
     const styling = {
       backgroundColor: customizedTheme.backgroundColor,
       // backgroundColor: '#fafafa',
-      marginTop:'2%',
-      // height:
     };
     const submenuStyle = {
       backgroundColor: 'rgba(0,0,0,0.3)',
@@ -173,7 +171,7 @@ class Sidebar extends Component {
         {/* <MySidebar/> */}
           {/* <Logo collapsed={collapsed} /> */}
          
-          <Scrollbars style={{ height: height - 70 }}>
+          <Scrollbars style={{ height: height - 70}}>
           <p style={{textAlign:'center'}}>
             <button
               className={

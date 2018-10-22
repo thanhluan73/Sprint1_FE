@@ -7,7 +7,7 @@ import options from "./MenuOptions";
 import TableDataRoute from "containers/Page/private/admin/User/TableDataRoute";
 import DataFormRoute from 'containers/Page/private/admin/User/DataFormRoute';
 import Users from './user/Users';
-
+import Breadcrumb from 'components/breadcrumb/Breadcrumb';
 import UserInfo from './user/UserInfo';
 export default class extends React.Component {
     state={
@@ -29,9 +29,18 @@ export default class extends React.Component {
             overflow: "hidden",
             width: '100%'
         };
+        const breadStyle = {
+            marginLeft: '5px',
+            position: 'relative',
+            marginBottom: '10px'
+
+        }
         return (
             <LayoutWrapper>
                 <div style={pageStyle}>
+                    <Row style={breadStyle}>
+                        <Breadcrumb menuOption={options} url={url}/>
+                    </Row>
                     <Row style={rowStyle} gutter={0} justify='start'>
                         {/* config menu */}
                         <Col md={4} sm={24} xs={24} style={colStyle} className="inlineCollapse">
