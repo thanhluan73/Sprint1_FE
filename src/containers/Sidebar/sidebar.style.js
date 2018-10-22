@@ -4,6 +4,10 @@ import { transition, borderRadius } from "../../settings/style-util";
 import WithDirection from "../../settings/withDirection";
 
 const SidebarWrapper = styled.div`
+.iconLeftCircle{
+  font-size: 15px;
+}
+
 .isoLogoHome {
   height: 70px;
   background: rgba(0, 0, 0, 0.3);

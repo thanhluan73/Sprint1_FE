@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "react-sidebar";
 // import User from 'containers/Page/404';
 import User from 'containers/Page/test/list';
-import {styleExpand} from './expandbar.style';
+import {styleExpand} from './Expandbar.style';
 const mql = window.matchMedia(`(min-width: 800px)`);
 
 class Expandbar extends React.Component {
