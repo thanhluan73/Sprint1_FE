@@ -7,7 +7,7 @@ import options from "./MenuOptions";
 import TableDataRoute from "containers/Page/private/admin/User/TableDataRoute";
 import DataFormRoute from 'containers/Page/private/admin/User/DataFormRoute';
 import Users from './user/Users';
-import Breadcrumb from 'components/breadcrumb/Breadcrumb'
+import Breadcrumb from 'components/breadcrumb/Breadcrumb';
 import UserInfo from './user/UserInfo';
 export default class extends React.Component {
     state={

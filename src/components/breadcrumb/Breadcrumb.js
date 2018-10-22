@@ -26,7 +26,7 @@ class MyBreadcrumb extends Component{
         var url=`/`;
         var i;
         for(i =0;i<item.length;i++){
-            if(i<=ind)
+            if(i<=ind&&i>=3)
             url+= item[i]+'/'; 
         };
         return url.substring(0,url.length-1);
@@ -34,29 +34,25 @@ class MyBreadcrumb extends Component{
     createBreadcrumbItem = ()=>{
         var item = window.location.href.split("/");
         var i=0;
-        console.log(this.createURL(3));
         var result;
         result = item.map((val, index) => {
             if(index===3){
-                // console.log(this.createURL(index));
                 return (
-                    <Breadcrumb.Item href={`/${val}`}>
+                    <Breadcrumb.Item href={`${this.createURL(index)}`}>
                         <Icon type="home" />
                     </Breadcrumb.Item>
                 );
             }else if(index===4){
                 var name=this.findNameMenuWithKey(options,val);
-                // console.log(this.createURL(index));
                 return (
-                    <Breadcrumb.Item href={`/${val}`}>
+                    <Breadcrumb.Item href={`${this.createURL(index)}`}>
                         <IntlMessages id={name.label}/>
                     </Breadcrumb.Item>
                 );
             }else if(index>4){
-                // console.log(this.createURL(index));
                 var name=this.findNameMenuWithKey(this.props.menuOption,val);
                 return (
-                    <Breadcrumb.Item href={`/${val}`}>
+                    <Breadcrumb.Item href={`${this.createURL(index)}`}>
                         <IntlMessages id={name.label}/>
                     </Breadcrumb.Item>
                 );
