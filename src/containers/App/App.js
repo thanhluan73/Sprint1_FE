@@ -44,7 +44,7 @@ export class App extends Component {
       <ThemeProvider theme={themes[themeConfig.theme]}>
         <AppHolder>
           <Layout style={{ height: appHeight }}>
-            <Header style={{padding:0}}>
+            <Header style={{padding:0, height: '50px'}}>
               <Debounce time="1000" handler="onResize">
                 <WindowResizeListener
                   onResize={windowSize =>
