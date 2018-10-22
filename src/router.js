@@ -62,6 +62,16 @@ const PublicRoutes = ({ history, isLoggedIn='true' }) => {
           path={`${frontPageConfig.baseUrl}`}
           component={asyncComponent(() => import('./containers/Page/public'))}
         />
+        <Route
+          exact
+          path={'/confirmregister'}
+          component={asyncComponent(() => import('./containers/Page/private/account/confirmRegister'))}
+        />
+        <Route
+          exact
+          path={'/requestconfirm'}
+          component={asyncComponent(() => import('./containers/Page/private/account/requestConfirm'))}
+        />
         <RestrictedRoute
           path="/dashboard"
           component={App}

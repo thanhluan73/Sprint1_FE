@@ -29,10 +29,16 @@ export default class extends React.Component {
             overflow: "hidden",
             width: '100%'
         };
+        const breadStyle = {
+            marginLeft: '5px',
+            position: 'relative',
+            marginBottom: '10px'
+
+        }
         return (
             <LayoutWrapper>
                 <div style={pageStyle}>
-                    <Row>
+                    <Row style={breadStyle}>
                         <Breadcrumb menuOption={options} url={url}/>
                     </Row>
                     <Row style={rowStyle} gutter={0} justify='start'>

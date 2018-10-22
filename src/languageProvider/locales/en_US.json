@@ -1,10 +1,11 @@
 {
+  "page.confirmRegister": "Tiếp theo",
   "category.category": "Category",
   "category.all_category": "All Category",
   "category.add_category": "Add New",
   "company.info": "Thông tin",
   "company.infomation": "Thông tin công ty",
-
+  "group.companys": "Nhóm",
   "tag.tag": "Tag",
   "tag.add_tag": "Add New",
   "tag.all_tag": "All Tag",

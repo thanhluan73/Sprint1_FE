@@ -4,6 +4,7 @@ import { transition, borderRadius, boxShadow } from "../../settings/style-util";
 import WithDirection from "../../settings/withDirection";
 
 const TopbarWrapper = styled.div`
+
   .isomorphicTopbar {
     display: flex;
     justify-content: space-between;
@@ -69,6 +70,7 @@ const TopbarWrapper = styled.div`
     .isoRight {
       display: flex;
       align-items: center;
+      margin-top: 15px;
 
       li {
         margin-left: ${props => (props["data-rtl"] === "rtl" ? "35px" : "0")};
