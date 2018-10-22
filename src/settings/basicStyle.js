@@ -10,7 +10,7 @@ const colStyle = {
   padding:'0px 5px',  
   // height:'100%',
   overflow:'auto',
-  height:548,
+  // height:548,
 };
 const gutter = 16;
 const basicStyle = {

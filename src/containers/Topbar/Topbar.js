@@ -48,11 +48,7 @@ class Topbar extends Component {
             <LogoHome />
             :<div></div>
           } */}
-<<<<<<< HEAD
           <h3 style={{position:'absolute', left:'50px'}}>PROPTECH PLUS</h3>
-=======
-          <h3 style={{position: 'absolute', left: '30px'}}>PROPTECH PLUS</h3>
->>>>>>> 1f2f64bc45adf577e4014efbe23201ac534fe788
             <Search
                 placeholder="Input search text"
                 onSearch={val=>this.searchHandle(val)}

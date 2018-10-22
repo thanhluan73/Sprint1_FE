@@ -14,14 +14,19 @@ const adminRoutes = [
     component: asyncComponent(() => import("containers/Page/private/admin/Account"))
   },
   {
+    path: 'demoapi',
+    exact: false,
+    component: asyncComponent(() => import("containers/Page/private/admin/DemoAPI"))
+  },
+  {
+    path: 'anh-tu',
+    exact: false,
+    component: asyncComponent(() => import("containers/Page/private/admin/User"))
+  },
+  {
     path: 'company',
     exact: false,
     component: asyncComponent(() => import("containers/Page/private/admin/Company"))
-  },
-  { 
-    path: 'users',
-    exact: false,
-    component: asyncComponent(() => import("pages/manager/user/Users"))
   },
   { 
     path: 'list-role',

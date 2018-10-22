@@ -71,7 +71,7 @@ export default class App extends Component {
                 :
                     <div>
                         <Button  style={{  marginRight: 8, }}  onClick={onClose} >  Cancel  </Button>
-                        <Button onClick={onClose} type="primary"> Submit </Button>
+                        {/* <Button onClick={onClose} type="primary"> Submit </Button> */}
                     </div>
             }
           </div>

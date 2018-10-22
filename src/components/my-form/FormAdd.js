@@ -44,7 +44,6 @@ class FormByMe extends React.Component{
      
     render(){
         var {layout,listButton,styles,listField,onSubmit} = this.props;
-        console.log(listField.style);
         const { getFieldDecorator } = this.props.form;
         const formItemLayout = layout === 'horizontal' ? {
             labelCol: { span: 10 },

@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import PanelWrapper from "containers/Custom/Panel.style";
 import DataForm from 'containers/DataEditor/DataForm';
 import FormItem from 'components/formItem/FormItem';
-
+import {ACCESS_TOKEN} from 'settings/sessionStorage';
+import {handleAPI} from 'actions/api';
 // import blogAction from "redux/admin/blog/actions";
 
 // const { loadTags, addTag, changeTag, deleteTag } = blogAction;
@@ -16,7 +17,7 @@ class DataFormComponent extends React.Component {
             data_record: {
             },
             fullScreenMode: false,
-            columns: [
+            columns: [ 
                 {
                     key: "id",
                     label: "Tag id",
@@ -35,8 +36,43 @@ class DataFormComponent extends React.Component {
             ],
         }
     }
+    componentWillMount(){
+        var {pageSize,pageIndex,iSearch} = this.state;
+        var accesstoken =sessionStorage.getItem(ACCESS_TOKEN);
+        var methodType='INFO_API';
+        var objectParam={
+            endpointAPI:'user',
+            objData:null,
+            objCount:null,
+            accesstoken:accesstoken,
+            objectLoadData:{
+                // page:pageSize,
+                // pageNow:pageIndex,
+                // iSearch:iSearch
+            },
+            ActionType:'FETCHING_ORGAN'
+        }
+        this.props.handleAPI(methodType,objectParam);
+
+    }
+
 
     componentWillReceiveProps(nextProps) {
+        var accesstoken =sessionStorage.getItem(ACCESS_TOKEN);
+        var methodType='INFO_API';
+        var objectParam={
+            endpointAPI:'user',
+            objData:null,
+            objCount:null,
+            accesstoken:accesstoken,
+            objectLoadData:{
+                // page:pageSize,
+                // pageNow:pageIndex,
+                // iSearch:iSearch
+            },
+            ActionType:'FETCHING_ORGAN'
+        }
+        this.props.handleAPI(methodType,objectParam);
         const data_record = nextProps.dataArr.find(function (element) {
             const id = nextProps.match.params.id;
             return element.id.toString() === id;
@@ -57,6 +93,7 @@ class DataFormComponent extends React.Component {
     handleSubmit = () => {
         const data_record = this.state.data_record;
         if (data_record.name && data_record !== '') {
+            console.log(data_record);
             if (data_record.id) {
                 // change profile
                 this.props.changeTag(data_record)
@@ -98,8 +135,8 @@ class DataFormComponent extends React.Component {
 
 export default connect(
     state => ({
-        dataArr: state.Blog.tags ? state.Blog.tags : [],
+        dataArr: state.demo ? state.demo : [],
     }),
     // { loadTags, addTag, changeTag, deleteTag }
-    null
+    {handleAPI}
 )(DataFormComponent);

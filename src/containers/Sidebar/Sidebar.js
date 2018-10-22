@@ -144,13 +144,8 @@ class Sidebar extends Component {
     const styling = {
       backgroundColor: customizedTheme.backgroundColor,
       // backgroundColor: '#fafafa',
-<<<<<<< HEAD
-      // marginTop:'20%'
-      // height:665
-=======
       marginTop:'2%',
       // height:
->>>>>>> 1f2f64bc45adf577e4014efbe23201ac534fe788
     };
     const submenuStyle = {
       backgroundColor: 'rgba(0,0,0,0.3)',
