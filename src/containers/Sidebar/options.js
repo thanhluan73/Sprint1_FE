@@ -25,6 +25,11 @@ const options = [
       // },
     ]
   },
+  {
+    key: "group-user",
+    label: "group.companys",
+    leftIcon: "ion-ios-people",
+  }
   // {
   //   key: "blog-group",
   //   label: "blog.blog",
