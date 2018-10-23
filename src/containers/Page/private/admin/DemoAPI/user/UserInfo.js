@@ -1,30 +1,14 @@
 import React, { Component } from 'react';
-import { withRouter,Link,Redirect} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Layout, Menu, Breadcrumb,Input,Row,Button,Col,Upload, Icon, Modal } from 'antd';
+import { Layout,Row,Button,Col, Icon } from 'antd';
 import MyForm from 'components/my-form/MyForm';
 
 import PanelWrapper from "containers/Custom/Panel.style";
 const styles={
     textAlign:'center'
 };
-const listOption=[
-    {
-        id:"1",
-        name:"Admin",
-        description:"Admin",
-        postID:"80000"
-    },
-    {
-        id:"21",
-        name:"Member",
-        description:"Member",
-        postID:"80000"
-    }
-];
-
-const { Header, Content, Footer } = Layout;
-const Search = Input.Search;   
+const {  Content } = Layout;
 class UserInfo extends Component{
     state={
         iSearch:"ALL",
@@ -54,7 +38,7 @@ class UserInfo extends Component{
     handleChange = ({ fileList }) => this.setState({ fileList })
   
     render(){
-        const { previewVisible, previewImage, fileList} = this.state;
+        // const { previewVisible, previewImage, fileList} = this.state;
         var {userInfo} =this.props;
         var listField=[
             {
@@ -163,12 +147,12 @@ class UserInfo extends Component{
             },
           ]
         
-        const uploadButton = (
-        <div>
-            <Icon type="plus" />
-            <div className="ant-upload-text">Upload</div>
-        </div>
-        );
+        // const uploadButton = (
+        //     <div>
+        //         <Icon type="plus" />
+        //         <div className="ant-upload-text">Upload</div>
+        //     </div>
+        // );
         const listButton=[
         ]
           

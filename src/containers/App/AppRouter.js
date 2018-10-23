@@ -19,6 +19,11 @@ const adminRoutes = [
     component: asyncComponent(() => import("containers/Page/private/admin/DemoAPI"))
   },
   {
+    path: 'demoapi2',
+    exact: false,
+    component: asyncComponent(() => import("containers/Page/private/admin/DemoAPI2"))
+  },
+  {
     path: 'anh-tu',
     exact: false,
     component: asyncComponent(() => import("containers/Page/private/admin/User"))
@@ -28,15 +33,6 @@ const adminRoutes = [
     exact: false,
     component: asyncComponent(() => import("containers/Page/private/admin/Company"))
   },
-  { 
-    path: 'list-role',
-    exact: false, 
-    component: asyncComponent(() => import("pages/manager/role/ListRole"))
-  },
-  // {
-  //   path: "blankPage",
-  //   component: asyncComponent(() => import("../blankPage"))
-  // }
 ];
 
 class AppRouter extends Component { 

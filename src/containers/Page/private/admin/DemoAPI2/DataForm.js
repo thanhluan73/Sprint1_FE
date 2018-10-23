@@ -11,18 +11,17 @@ class DataFormComponent extends React.Component {
         super(props);
         this.state = {
             data_record: {
-                fullName:'',
-                address:'',
-                phoneNumber:'',
+                name:'',
+                phone:'',
                 email:'',
                 id:'',
-                avatar:''
+                size:''
             },
             fullScreenMode: false,
             columns: [
                 {
                     key: "id",
-                    label: "User id",
+                    label: "Company id",
                     formItem: {
                         name: FormItem.Input,
                         action: this.changeId
@@ -37,50 +36,16 @@ class DataFormComponent extends React.Component {
                     }
                 },
                 {
-                    key: "fullName",
-                    label: "First Name",
+                    key: "name",
+                    label: "Name",
                     formItem: {
                         name: FormItem.Input,
                         action: this.changeFullName
                     },
                 },
+               
                 {
-                    key: "avatar",
-                    label: "Avatar",
-                    formItem: {
-                        name: FormItem.Select,
-                        action: this.changeAvatar,
-                        options: [
-                            {
-                                key: 1,
-                                value: 'https://s3.amazonaws.com/uifaces/faces/twitter/haruintesettden/128.jpg',
-                                text: 'Image 1'
-                            },
-                            {
-                                key: 2,
-                                value: 'https://s3.amazonaws.com/uifaces/faces/twitter/we_social/128.jpg',
-                                text: 'Image 2'
-                            },
-                            {
-                                key: 3,
-                                value: 'https://s3.amazonaws.com/uifaces/faces/twitter/surgeonist/128.jpg',
-                                text: 'Image 3'
-                            },
-                            {
-                                key: 4,
-                                value: 'https://s3.amazonaws.com/uifaces/faces/twitter/chaensel/128.jpg',
-                                text: 'Image 4'
-                            },
-                            {
-                                key: 5,
-                                value: 'https://s3.amazonaws.com/uifaces/faces/twitter/mactopus/128.jpg',
-                                text: 'Image 5'
-                            },
-                        ]
-                    },
-                },
-                {
-                    key: "phoneNumber",
+                    key: "phone",
                     label: "Phone Number",
                     formItem: {
                         name: FormItem.InputNumber,
@@ -88,11 +53,11 @@ class DataFormComponent extends React.Component {
                     }
                 },
                 {
-                    key: "address",
-                    label: "Address",
+                    key: "size",
+                    label: "Size",
                     formItem: {
-                        name: FormItem.Input,
-                        action: this.changeAddress
+                        name: FormItem.InputNumber,
+                        action: this.changeSize
                     }
                 },
             ]
@@ -116,7 +81,7 @@ class DataFormComponent extends React.Component {
     changeFullName = (e) => {
         const value = e.target.value;
         const state = this.state;
-        state.data_record = { ...state.data_record, fullName: value };
+        state.data_record = { ...state.data_record, name: value };
         this.setState(state)
     }
     changeId = (e) => {
@@ -126,28 +91,20 @@ class DataFormComponent extends React.Component {
         this.setState(state)
     }
 
-    changeAddress=(e)=>{
+    changeSize=(e)=>{
         const value = e.target.value;
         const state = this.state;
-        state.data_record = { ...state.data_record, address: value };
+        state.data_record = { ...state.data_record, size: value };
         this.setState(state)
     }
 
     changePhoneNumber = (e) => {
         const value = e.target.value;
         const state = this.state;
-        state.data_record = { ...state.data_record, phoneNumber: value };
+        state.data_record = { ...state.data_record, phone: value };
         this.setState(state)
     }
 
-    
-    changeAvatar = (value, action) => {
-        const state = this.state;
-        state.data_record = { ...state.data_record, avatar: value };
-        this.setState(state)
-    };
-
-   
     handleSubmit = () => {
         const addNew = window.location.href.split("/")[window.location.href.split('/').length - 1] === 'add-new';
         const data_record_tmp = this.state.data_record;

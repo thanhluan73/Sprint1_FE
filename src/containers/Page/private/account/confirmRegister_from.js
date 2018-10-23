@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Input, Select, Cascader } from 'antd';
+import { Input, Select } from 'antd';
 import Form from 'components/uielements/form';
 import Checkbox from 'components/uielements/checkbox';
 import Button from 'components/uielements/button';
-import { relative } from 'path';
-import { Link } from "react-router-dom";
-import IntlMessages from "components/utility/intlMessages";
+// import { relative } from 'path';
+// import { Link } from "react-router-dom";
+// import IntlMessages from "components/utility/intlMessages";
 
 // import Notification from 'components/notification';
 
@@ -50,9 +50,9 @@ class ConfirmRegisterForm extends Component {
    
 
     render() {
-        const Option = Select.Option;
+        // const Option = Select.Option;
 
-        const { size } = this.props;
+        // const { size } = this.props;
 
         const { getFieldDecorator } = this.props.form;
 
@@ -137,12 +137,10 @@ class ConfirmRegisterForm extends Component {
                                 }
                             ]
                         })
-                        (
-                            <Checkbox>
-                                I have read the <a href="">agreement</a>
-                            </Checkbox>
-                        )
                         }
+                        <Checkbox>
+                            I have read the <span>agreement</span>
+                        </Checkbox>
                     </FormItem>
                     <FormItem >
                         <Button type="primary" htmlType="submit">

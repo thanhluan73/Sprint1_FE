@@ -16,6 +16,11 @@ const options = [
     leftIcon: "ion-pie-graph"
   },
   {
+    key: "demoapi2",
+    label: "Demoapi2",
+    leftIcon: "ion-pie-graph"
+  },
+  {
     key: "user-group",
     label: "user.account",
     leftIcon: "ion-ios-people",

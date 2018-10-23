@@ -3,7 +3,7 @@ import { withRouter,Link,Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Layout, Menu, Breadcrumb,Input,Row,Button,Col,Icon } from 'antd';
 import MyTable from 'components/table/MyTable';
-import CompanyInfo from 'pages/manager/company/CompanyInfo';
+import CompanyInfo from './CompanyInfo';
 
 import PanelWrapper from "containers/Custom/Panel.style";
 const { Header, Content, Footer } = Layout;

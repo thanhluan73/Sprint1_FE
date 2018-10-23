@@ -70,7 +70,7 @@ class TableDataComponent extends React.Component {
 
 export default connect(
     state => ({
-        dataArr: state.demo ? state.demo : [],
+        dataArr: state.User.users ? state.User.users : [],
     }),
     { loadAllUser, deleteUser }
 )(TableDataComponent);

@@ -6,8 +6,8 @@ export default function callApi(endpoint, method = 'GET', body,accesstoken) {
         url: `${config.API_URL_S}/${endpoint}`,
         method,
         headers:{
-            // 'access-control-request-origin':'*',
-            // 'content-type' : 'application/json',
+            'access-control-request-origin':'*',
+            'content-type' : 'application/json',
             // 'Authorization': 'Bearer ' + accesstoken,
         },
         data: body

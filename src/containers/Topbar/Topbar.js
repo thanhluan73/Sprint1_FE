@@ -6,14 +6,11 @@ import TopbarWrapper from "./topbar.style";
 import themes from "settings/themes";
 import { themeConfig } from "settings";
 
-import TopbarUser from "./topbarUser";
 import TopbarMessage from './topbarMessage';
-import TopbarSearch from './topbarSearch';
 import TopbarNotification from './topbarNotification';
 import Helper from './Helper';
-import LogoHome from 'components/utility/logoHome';
 import Actions from '../../redux/themeSwitcher/actions.js';
-const { switchActivation, changeTheme } = Actions;  
+const { switchActivation,  } = Actions;  
 const { Header } = Layout;
 const { toggleCollapsed } = appActions;
 const customizedTheme = themes[themeConfig.theme];
@@ -24,8 +21,7 @@ class Topbar extends Component {
    
 }
   render() {
-    const { toggleCollapsed ,switchActivation} = this.props;
-    const collapsed = this.props.collapsed && !this.props.openDrawer;
+    const { switchActivation} = this.props;
     const styling = {
       background: customizedTheme.backgroundColor,
       position: "fixed",
@@ -37,27 +33,17 @@ class Topbar extends Component {
       <TopbarWrapper>
         <Header
           style={styling}
-          className={
-            // collapsed ? "isomorphicTopbar collapsed" : "isomorphicTopbar"
-            'isomorphicTopbar'
-          }
+          className={'isomorphicTopbar'}
         >
           <div style={{position: 'absolute', marginLeft: '-210px', marginTop: '-5px', }}>
               <h3 style={{Height: '80px'}}>PROPTECH PLUS</h3>
           </div>
           <div className="isoLeft">
-          {/* {
-            (collapsed)?
-            <LogoHome />
-            :<div></div>
-          } */}
-            
           
             <Search
                 placeholder="Input search text"
                 onSearch={val=>this.searchHandle(val)}
                 style={{ width: 400, marginLeft: '-25px'}}
-                
             />
           </div>
 
@@ -75,16 +61,9 @@ class Topbar extends Component {
             >
               <TopbarNotification />
             </li>
-            {/* <li
-              onClick={() => this.setState({ selectedItem: "user" })}
-              className="isoUser"
-            >
-              <TopbarUser />
-            </li> */}
             <li
               onClick={() => switchActivation()}
               className="isoUser"
-              // className="switcherToggleBtn"
             >
                 <Helper/>
             </li>

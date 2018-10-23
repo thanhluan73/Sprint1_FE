@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Layout,Icon,Row,Col,Drawer } from 'antd';
+import { Layout, } from 'antd';
 import { Debounce } from 'react-throttle';
 import WindowResizeListener from 'react-window-size-listener';
 import { ThemeProvider } from 'styled-components';
 // import authAction from 'redux/auth/actions';
 import appActions from 'redux/app/actions';
 import Sidebar from '../Sidebar/Sidebar';
-import Expandbar from '../Expandbar/Expandbar';
 import Topbar from 'containers/Topbar/Topbar';
 import AppRouter from './AppRouter';
-import { siteConfig } from '../../settings';
+// import { siteConfig } from '../../settings';
 import themes from '../../settings/themes';
 import { themeConfig } from '../../settings';
 import AppHolder from './commonStyle';
 import './global.css';
-import Breadcrumb from 'components/breadcrumb/Breadcrumb';
-import basicStyle from "settings/basicStyle.js";
+// import basicStyle from "settings/basicStyle.js";
 
 import ThemeSwitcher from '../../containers/ThemeSwitcher';
-import LayoutWrapper from "components/utility/layoutWrapper";
 
 // import MySidebar from 'containers/Sidebar/MySidebar';
-const { Header,Content, Footer ,Sider} = Layout;
+const { Header,Content, } = Layout;
 // const { logout } = authAction;
 const { toggleAll } = appActions;
 export class App extends Component {
@@ -30,16 +27,7 @@ export class App extends Component {
     const { url } = this.props.match;
     const { height } = this.props;
     const appHeight = window.innerHeight;
-    const pageStyle = {
-      display: "flex",
-      flexFlow: "row nowrap",
-      flexDirection: 'column',
-      alignItems: "flex-start",
-      overflow: "hidden",
-      width: '100%',
-      paddingTop:0
-  };
-  const { rowStyle, colStyle } = basicStyle;
+    
     return (
       <ThemeProvider theme={themes[themeConfig.theme]}>
         <AppHolder>
@@ -93,6 +81,5 @@ export default connect(
     auth: state.Auth,
     height: state.App.height
   }),
-  // { logout, toggleAll }
   {  toggleAll }
 )(App);

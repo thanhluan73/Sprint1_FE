@@ -1,7 +1,7 @@
 // IMPORT REACT
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 // IMPORT COMPONENTs
 
 import SignupForm from './signup_from';

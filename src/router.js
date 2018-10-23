@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import {ConnectedRouter} from 'connected-react-router';
 import App from './containers/App/App';
 import asyncComponent from './helpers/AsyncFunc';
@@ -71,6 +71,11 @@ const PublicRoutes = ({ history, isLoggedIn='true' }) => {
           exact
           path={'/requestconfirm'}
           component={asyncComponent(() => import('./containers/Page/private/account/requestConfirm'))}
+        />
+        <Route
+          exact
+          path={'/20'}
+          component={asyncComponent(() => import('./containers/Page/private/screen/20'))}
         />
         <RestrictedRoute
           path="/dashboard"

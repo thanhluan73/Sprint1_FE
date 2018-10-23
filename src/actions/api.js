@@ -16,11 +16,11 @@ export const handleAPI=(objectParam,objectData)=>{
         case 'ADD_API':
             return actAddObject(objectParam,objectData);
         case 'UPDATE_API':
-            return actUpdateObject(objectParam);
+            return actUpdateObject(objectParam,objectData);
         case 'FIND_API':
-            return actFindObject(objectParam);
+            return actFindObject(objectParam,objectData);
         case 'DELETE_API':
-            return actDeleteObject(objectParam);
+            return actDeleteObject(objectParam,objectData);
         case 'INFO_API':
             return loadData(objectParam);
         
@@ -32,8 +32,6 @@ export const handleAPI=(objectParam,objectData)=>{
     return (dispatch) => {
         dispatch(actFetching(true));
         return callApis(objectParam.endpointAPI+getParamFromObject(objectParam.objectLoadData)+'', 'GET', null,objectParam.accesstoken).then(res => {
-            // console.log(res);
-            // console.log(objectParam.endpointAPI+getParamFromObject(objectParam.objectLoadData)+'');
             dispatch(fetchingObject(res.data,
                 objectParam.objectLoadData.pageNow,
                 objectParam.objectLoadData.page,
@@ -45,15 +43,22 @@ export const handleAPI=(objectParam,objectData)=>{
     };
 }
  const actAddObject = (objectParam,objectData) => {
+     var total=0;
     return (dispatch) => {
         dispatch(actFetching(true));
         return callApis(objectParam.endpointAPI, 'POST', objectData,objectParam.accesstoken).then((res) => {
-            console.log(res.data);
-            loadData(objectParam.objectLoadData);
+            return callApis(objectParam.objectLoadData.endpointAPI+getParamFromObject(objectParam.objectLoadData.objectLoadData)+'', 'GET', null,objectParam.accesstoken).then(res => {
+                dispatch(fetchingObject(res.data,
+                    objectParam.objectLoadData.pageNow,
+                    objectParam.objectLoadData.page,
+                    total,
+                    objectParam.ActionType
+                ));
             dispatch(actFetching(false));
         }).catch(error => console.log("Fetch Error "+ error));
-    }
+    });
 }
+ }
 
  const fetchingObject = (myobj,pageIndex,pageSize,totalData,ActionType) => {
     
@@ -66,13 +71,22 @@ export const handleAPI=(objectParam,objectData)=>{
     }
 }
 
- const actUpdateObject = (objectParam) => {
+ const actUpdateObject = (objectParam,objData) => {
+    
+     var total=0;
     return (dispatch) => {
         dispatch(actFetching(true));
-        return callApis(objectParam.endpointAPI+getParamFromObject(objectParam.id)+'', 'PUT', objectParam.objData,objectParam.accesstoken).then(() => {
-            loadData(objectParam.objectLoadData);
+        return callApis(objectParam.endpointAPI+getParamFromObject(objData.id)+'', 'PUT', objData.data,objectParam.accesstoken).then(() => {
+            return callApis(objectParam.objectLoadData.endpointAPI+getParamFromObject(objectParam.objectLoadData.objectLoadData)+'', 'GET', null,objectParam.accesstoken).then(res => {
+                dispatch(fetchingObject(res.data,
+                    objectParam.objectLoadData.pageNow,
+                    objectParam.objectLoadData.page,
+                    total,
+                    objectParam.ActionType
+                ));
             dispatch(actFetching(false));
         });
+    });
     }
 }
 
@@ -83,20 +97,28 @@ export const handleAPI=(objectParam,objectData)=>{
     }
 };
 
- const actDeleteObject = (objectParam) => {
+ const actDeleteObject = (objectParam,objectData) => {
+     var total=0;
     return (dispatch) => {
-        return callApis(objectParam.endpointAPI+getParamFromObject(objectParam.id)+'', 'DELETE', null,objectParam.accesstoken).then(() => {
-            loadData(objectParam.objectLoadData);
+        return callApis(objectParam.endpointAPI+getParamFromObject(objectData)+'', 'DELETE', null,objectParam.accesstoken).then(() => {
+            return callApis(objectParam.objectLoadData.endpointAPI+getParamFromObject(objectParam.objectLoadData.objectLoadData)+'', 'GET', null,objectParam.accesstoken).then(res => {
+                dispatch(fetchingObject(res.data,
+                    objectParam.objectLoadData.pageNow,
+                    objectParam.objectLoadData.page,
+                    total,
+                    objectParam.ActionType
+                ));
             dispatch(actFetching(false));
         }).catch(err => {
             return (err);
         });
-    }
+    });
 };
- const actFindObject= (objectParam) => {
+ }
+ const actFindObject= (objectParam,objectData) => {
     return (dispatch) => {
-        return callApis(objectParam.endpointAPI+getParamFromObject(objectParam.id)+'', 'GET',objectParam.accesstoken).then((res) => {
-            dispatch(actionFindObject(res.data,objectParam.actType));
+        return callApis(objectParam.endpointAPI+'/'+objectData.id, 'GET',objectParam.accesstoken).then((res) => {
+            dispatch(actionFindObject(res.data,objectParam.ActionType));
         });
     }
 }

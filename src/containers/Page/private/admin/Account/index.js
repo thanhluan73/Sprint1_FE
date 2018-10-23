@@ -4,8 +4,6 @@ import EditorMenu from "containers/DataEditor/EditorMenu";
 import React from 'react';
 import basicStyle from "settings/basicStyle.js";
 import options from "./MenuOptions";
-import TableDataRoute from "containers/Page/private/admin/User/TableDataRoute";
-import DataFormRoute from 'containers/Page/private/admin/User/DataFormRoute';
 import Users from './user/Users';
 import Breadcrumb from 'components/breadcrumb/Breadcrumb';
 import UserInfo from './user/UserInfo';
@@ -19,7 +17,7 @@ export default class extends React.Component {
     render() {
         const url = this.props.match.url;
 
-        const addNew = window.location.href.split("/")[window.location.href.split('/').length - 1] === 'add-new';
+        // const addNew = window.location.href.split("/")[window.location.href.split('/').length - 1] === 'add-new';
         const { rowStyle, colStyle } = basicStyle;
         const pageStyle = {
             display: "flex",

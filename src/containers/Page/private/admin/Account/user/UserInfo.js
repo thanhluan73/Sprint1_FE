@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter,Link,Redirect} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Layout, Menu, Breadcrumb,Input,Row,Button,Col,Upload, Icon, Modal } from 'antd';
+import { Layout,Row,Button,Col,Upload, Icon, Modal } from 'antd';
 import MyForm from 'components/my-form/MyForm';
 
 import PanelWrapper from "containers/Custom/Panel.style";
@@ -23,8 +23,8 @@ const listOption=[
     }
 ];
 
-const { Header, Content, Footer } = Layout;
-const Search = Input.Search;   
+const {  Content } = Layout;
+// const Search = Input.Search;   
 class UserInfo extends Component{
     state={
         iSearch:"ALL",

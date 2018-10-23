@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Input, Select, Cascader } from 'antd';
+import { Input, Select } from 'antd';
 import Form from 'components/uielements/form';
-import Checkbox from 'components/uielements/checkbox';
-import Button from 'components/uielements/button';
+// import Checkbox from 'components/uielements/checkbox';
+// import Button from 'components/uielements/button';
 import { relative } from 'path';
 import { Link } from "react-router-dom";
 import IntlMessages from "components/utility/intlMessages";
@@ -52,7 +52,7 @@ class SignupForm extends Component {
     render() {
         const Option = Select.Option;
 
-        const { size } = this.props;
+        // const { size } = this.props;
 
         const { getFieldDecorator } = this.props.form;
 

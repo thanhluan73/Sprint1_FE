@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import clone from 'clone';
 import { Link } from 'react-router-dom';
-import { Layout,Icon, Button } from 'antd';
+import { Layout,Icon, } from 'antd';
 import options from './options';
 import Scrollbars from 'components/utility/customScrollBar.js';
 import Menu from 'components/uielements/menu';
 import IntlMessages from 'components/utility/intlMessages';
 import SidebarWrapper from './sidebar.style';
 import appActions from 'redux/app/actions';
-import Logo from 'components/utility/logo';
 import themes from 'settings/themes';
 import { themeConfig } from 'settings';
 
-import MySidebar from 'containers/Sidebar/MySidebar';
 const SubMenu = Menu.SubMenu;
 const { Sider } = Layout; 
  
@@ -153,7 +151,7 @@ class Sidebar extends Component {
     const submenuColor = {
       color: customizedTheme.textColor
     };
-    const { toggleCollapsed } = this.props;
+    // const { toggleCollapsed } = this.props;
     
     const collapsedClassName = this.props.collapsed && !this.props.openDrawer;
     return (

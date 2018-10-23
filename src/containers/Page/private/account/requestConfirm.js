@@ -1,9 +1,9 @@
 // IMPORT REACT
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Input from 'components/uielements/input';
-import Button from 'components/uielements/button';
-import { connect } from "react-redux";
+// import Input from 'components/uielements/input';
+// import Button from 'components/uielements/button';
+// import { connect } from "react-redux";
 // IMPORT COMPONENTs
 
 //IMPORT REDUX

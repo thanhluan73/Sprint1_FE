@@ -63,7 +63,7 @@ class TopbarMessage extends Component {
         </div>
         <div className="isoDropdownBody">
           {demoMassage.map(massage => (
-            <a className="isoDropdownListItem" key={massage.id}>
+            <button className="isoDropdownListItem" key={massage.id}>
               <div className="isoImgWrapper">
                 <img alt="#" src={Image} />
               </div>
@@ -75,12 +75,12 @@ class TopbarMessage extends Component {
                 </div>
                 <p>{massage.massage}</p>
               </div>
-            </a>
+            </button>
           ))}
         </div>
-        <a className="isoViewAllBtn">
+        <button className="isoViewAllBtn">
           <IntlMessages id="topbar.viewAll" />
-        </a>
+        </button>
       </TopbarDropdownWrapper>
     );
     return (

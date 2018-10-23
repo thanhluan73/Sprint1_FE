@@ -1,11 +1,16 @@
 import * as Types from 'actions/ActionTypes';
-var organData =[];
+var organData ={
+    demo:[],
+    itemEdit:{}
+};
    
 const organzation = (state = organData, action) => {
     switch (action.type) {
         case Types.FETCHING_ORGAN: 
-            return action.myobj;
-        default: return [...state];
+            return {...state,demo:action.myobj};
+        case Types.FIND_ORGAN: 
+            return {...state,itemEdit:action.obj};
+        default: return {...state};
         }
     };
 

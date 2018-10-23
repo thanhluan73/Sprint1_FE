@@ -4,9 +4,9 @@ import EditorMenu from "containers/DataEditor/EditorMenu";
 import React from 'react';
 import basicStyle from "settings/basicStyle.js";
 import options from "./MenuOptions";
-import Users from './user/Users';
+import Company from 'containers/Page/private/admin/DemoAPI2/company/Company';
 import Breadcrumb from 'components/breadcrumb/Breadcrumb';
-import UserInfo from './user/UserInfo';
+import CompanyInfo from 'containers/Page/private/admin/DemoAPI2/company/CompanyInfo';
 
 
 export default class API extends React.Component {
@@ -39,12 +39,12 @@ export default class API extends React.Component {
                             <EditorMenu url={url} options={options} />
                         </Col>
                         <Col md={18} sm={24} xs={24} style={colStyle}>
-                            <Users getUser={this.getUser} url={url} />
+                            <Company getUser={this.getUser} url={url} />
                         </Col>
                         {
                         (this.state.userSelected!==null)?
                             <Col md={24} sm={24} xs={24} style={colStyle}>
-                                <UserInfo userInfo={this.state.userSelected}/>
+                                <CompanyInfo userInfo={this.state.userSelected}/>
                             </Col>
                         :(<div></div>)
                         }

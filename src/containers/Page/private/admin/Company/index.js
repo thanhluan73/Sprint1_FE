@@ -4,7 +4,6 @@ import EditorMenu from "containers/DataEditor/EditorMenu";
 import React from 'react';
 import basicStyle from "settings/basicStyle.js";
 import options from "./MenuOptions";
-import Company from './company/Company';
 
 import Breadcrumb from 'components/breadcrumb/Breadcrumb';
 import CompanyInfo from './company/CompanyInfo';

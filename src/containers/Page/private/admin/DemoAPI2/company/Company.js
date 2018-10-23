@@ -7,11 +7,11 @@ import PanelWrapper from "containers/Custom/Panel.style";
 
 import {showNotification} from 'components/notification/Notification';
 import {handleAPI} from 'actions/api';
-import {loadObj,addObj,delObj,updateObj,findObj} from '../api/ObjectParam';
+import {loadObj,addObj,delObj,updateObj,findObj} from 'containers/Page/private/admin/DemoAPI2/api/ObjectParam';
 import * as typeAPI from 'utils/const/CheckTypeAPIComponents';
-import TableDataRoute from '../TableDataRoute';
+import TableDataRoute from 'containers/Page/private/admin/DemoAPI2/TableDataRoute';
 import Drawer from 'components/Drawer/Drawer';
-import DataFormRoute from '../DataFormRoute';
+import DataFormRoute from 'containers/Page/private/admin/DemoAPI2/DataFormRoute';
 const {  Content,  } = Layout;
 const Search = Input.Search;   
 class Companys extends Component{
@@ -77,11 +77,6 @@ class Companys extends Component{
                 if(isPageVisit===false){
                     pageVisit.push(pageInd);
                     this.setState({listPageVisit:pageVisit, });
-                    // fetchingAllOrgan(
-                    //     this.state.pageSize,
-                    //     this.state.pageIndex,
-                    //     "ALL"
-                    // );
                     
                 }
             });
@@ -93,11 +88,6 @@ class Companys extends Component{
                     if(isPageVisit===false){
                         pageVisit.push(pageInd);
                         this.setState({listPageVisitFilter:pageVisit, });
-                        // searchOrgan(
-                        //     this.state.pageSize,
-                        //     this.state.pageIndex,
-                        //     stringFilter
-                        // );
                     }
 
                 });
@@ -148,30 +138,24 @@ class Companys extends Component{
                 key:`ida`,
             },
            {
-               title: "Full Name",
-               dataIndex: "fullName",
+               title: "Name",
+               dataIndex: "name",
                key:`fullName`,
            },
            {
-               title: "Avatar",
-               dataIndex: "avatar",
-               key:`avatar`,
-               render: (txt) => <Avatar size='small' src={`${txt}`} />
-           },
-           {
-               title: "Address",
-               dataIndex: "address",
-               key:`address`,
-           },
-           {
                title: "Phone Number",
-               dataIndex: "phoneNumber",
+               dataIndex: "phone",
                key:`phoneNumber`,
            },
            {
                title: "Email",
                dataIndex: "email",
                key:`email`,
+           },
+           {
+               title: "Size",
+               dataIndex: "size",
+               key:`size`,
            },
            
            {
@@ -205,7 +189,7 @@ class Companys extends Component{
         const ButtonGroup = Button.Group;
         const listPropForDrawer={
             styleProps:{
-              title:"Add user",
+              title:"Add company",
               width:420,
               height:'100%',
               maskStyle:{
@@ -227,7 +211,7 @@ class Companys extends Component{
 
         const listPropForDrawerEdit={
             styleProps:{
-              title:"Edit user",
+              title:"Edit company",
               width:420,
               height:'100%',
               maskStyle:{
@@ -256,7 +240,7 @@ class Companys extends Component{
                             <Col >
                                 <Link to={`${this.props.url}/add-new`}>
                                     <Button type="primary" onClick={this.showDrawer}>
-                                        <Icon type="user-add" theme="outlined" />Add User 
+                                        <Icon type="user-add" theme="outlined" />Add company 
                                     </Button>
                                 </Link>
                                            

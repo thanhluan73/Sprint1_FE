@@ -103,7 +103,8 @@ class DataForm extends React.Component {
                                             }
 
                                         }
-                                        else if (!(field === 'id' || field === 'email' || field === 'type' || field === 'birthDay' || field === 'createDate' || field === 'updateDate')) {
+                                        // else if (!(field === 'id' || field === 'email' || field === 'type' || field === 'birthDay' || field === 'createDate' || field === 'updateDate')) {
+                                        else if (!(field === 'email' || field === 'type' || field === 'birthDay' || field === 'createDate' || field === 'updateDate')) {
                                             
                                             if (FormItemName === "ReadOnly") {
                                                 return <FormItem.PlainText
@@ -146,10 +147,10 @@ class DataForm extends React.Component {
                                                     action={formItem.action}
                                                 />
                                             } else {
-                                                console.log('edit table====================================');
-                                                console.log(field);
-                                                console.log(this.state.dataItem[field]);
-                                                console.log('====================================');
+                                                // console.log('edit table====================================');
+                                                // console.log(field);
+                                                // console.log(this.state.dataItem[field]);
+                                                // console.log('====================================');
                                                 return <FormItemName
                                                     key={field}
                                                     formitemlayout={formitemlayout}

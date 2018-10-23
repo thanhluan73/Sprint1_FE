@@ -1,13 +1,13 @@
 // IMPORT REACT
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+// import { Link } from "react-router-dom";
+// import { connect } from "react-redux";
 // IMPORT COMPONENTs
 
 import ConfirmRegisterForm from './confirmRegister_from';
 
 //IMPORT REDUX
-import IntlMessages from "components/utility/intlMessages";
+// import IntlMessages from "components/utility/intlMessages";
 //IMPORT STYLES
 import ConfirmRegisterStyleWrapper from "./confirmRegister.style";
 

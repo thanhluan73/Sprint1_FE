@@ -1,0 +1,184 @@
+.resp-header-container {
+    width: 100%;
+    max-width: 1024px;
+    padding: 0;
+    margin: 0 auto;
+    vertical-align: top;
+    position: relative;
+}
+.resp-header-box {
+    max-width: 550px;
+    max-height: 350px;
+    min-height: 100px;
+    margin-right: 20px;
+    display: inline-block;
+}
+.resp-header-box-text {
+    width: 100%;
+    font-size: 32px;
+    line-height: 40px;
+    max-height: 172px;
+    min-height: 100px;
+    padding-top: 36px;
+    padding-bottom: 32px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+h2 {
+    font-family: "SegoeUI-Light-final","Segoe UI Light","Segoe UI",Segoe,Tahoma,Helvetica,Arial,Sans-Serif;
+    font-size: 21px;
+    /* color: #333; */
+    line-height: 30px;
+    color: #fff;
+}
+.resp-content-box {
+    width: 640px;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding: 20px 20px 160px 20px;
+}
+.resp-content-contrastbg {
+    width: 620px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+    background-color: rgba(255,255,255,.95);
+}
+.mpl-layout.gemini * {
+    box-sizing: border-box;
+}
+.mpl-title-box.gemini {
+    margin-bottom: 0;
+    padding: 0;
+}
+.mpl-banner-box.gemini {
+    position: absolute;
+    top: 0;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 30px;
+    padding-right: 42px;
+}
+.mpl-title-box-text.gemini {
+    font-size: 40px;
+    line-height: 42px;
+    margin-left: 0;
+    margin-bottom: 20px;
+}
+.mpl-banner-box-hidden {
+    display: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin: 0 0 10px 0;
+}
+.signin-bubble {
+    right: 10%!important;
+}
+.signin-bubble {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 15;
+    height: 65px;
+    font-family: "SegoeUI-Light-final","Segoe UI Light","Segoe UI",Segoe,Tahoma,Helvetica,Arial,Sans-Serif;
+    font-size: 17px;
+}
+@media all and (max-width:768px){
+    .signin-bubble {
+        position: static;
+    }
+}
+.signin-bubble .left-side {
+    position: relative;
+    background: #eaeaea;
+    color: #212121;
+    display: inline-block;
+    font-size: 17px;
+    max-width: 400px;
+    padding: 15px 20px;
+}
+.signin-bubble .left-side .tip-container {
+    position: absolute;
+    width: 20px;
+    top: 38px;
+    overflow: hidden;
+    left: 18px;
+}
+.signin-bubble .right-side {
+    padding: 15px 25px;
+    display: inline-block;
+    color: #fff;
+    background: #da3b01;
+    font-family: 'SegoeUI-SemiBold-final','Segoe UI Semibold','Segoe WP Semibold','Segoe UI','Segoe WP',Tahoma,Arial,sans-serif;
+    cursor: pointer;
+    margin-left: -3px;
+}
+.signin-bubble .left-side .tip-container .tip {
+    width: 25px;
+    height: 25px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678,sizingMethod='auto expand')";
+    filter: progid:DXImageTransform.Microsoft.Matrix(M11=.70710678,M12=.70710678,M21=-.70710678,M22=.70710678,sizingMethod='auto expand');
+    background: #eaeaea;
+    position: relative;
+    left: -17px;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+div.MultiPageLayoutPanel.gemini {
+    min-height: 0;
+    margin-top: 0;
+}
+.field {
+    margin-top: 3px;
+}
+.field {
+    min-width: 540px!important;
+    width: 100%!important;
+}
+
+.field {
+    /* margin: 33px 0 0 0; */
+    width: 550px;
+}
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: inherit;
+}
+.field-validation-area {
+    min-height: 15px;
+    clear: both;
+}
+.field-halfwidth {
+    width: 281px;
+}
+.floatleft {
+    float: left;
+}
+select {
+    width: auto;
+    border: 1px solid #a3aeaf;
+    border-image: none;
+    font-size: 17px;
+}
+.field-validation-area {
+    min-height: 15px;
+    clear: both;
+}
+.ValidationCalloutForeground {
+    color: #e70000;
+}
+.field-halfwidth {
+    width: 260px;
+    height: 40px;
+}

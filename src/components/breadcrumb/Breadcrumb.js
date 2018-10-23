@@ -3,7 +3,7 @@ import {Breadcrumb,Icon} from 'antd';
 import TopbarWrapper from "containers/Topbar/topbar.style";
 import { connect } from 'react-redux';
 import options  from 'containers/Sidebar/options';
-
+import {updateIndex} from 'settings/settings_key_antd';
 import IntlMessages from 'components/utility/intlMessages';
 class MyBreadcrumb extends Component{
 
@@ -13,12 +13,14 @@ class MyBreadcrumb extends Component{
                return element.children.find((e)=>{
                     if(e.key===keys) {
                         return e;
-                    } 
+                    } else return null;
                 })
-            }else{
-                if(element.key===keys)return(element);
-                return null;
             }
+            if(element.key===keys){
+                return(element)
+            }
+            else return null;
+           
         });
     }
     createURL =(ind)=>{
@@ -33,30 +35,33 @@ class MyBreadcrumb extends Component{
     }
     createBreadcrumbItem = ()=>{
         var item = window.location.href.split("/");
-        var i=0;
         var result;
         result = item.map((val, index) => {
             if(index===3){
                 return (
-                    <Breadcrumb.Item href={`${this.createURL(index)}`}>
+                    <Breadcrumb.Item key={`${updateIndex()}i`} href={`${this.createURL(index)}`}>
                         <Icon type="home" />
                     </Breadcrumb.Item>
                 );
             }else if(index===4){
                 var name=this.findNameMenuWithKey(options,val);
                 return (
-                    <Breadcrumb.Item href={`${this.createURL(index)}`}>
+                    <Breadcrumb.Item key={`index${updateIndex()}`} href={`${this.createURL(index)}`}>
                         <IntlMessages id={name.label}/>
                     </Breadcrumb.Item>
                 );
             }else if(index>4){
-                var name=this.findNameMenuWithKey(this.props.menuOption,val);
-                return (
-                    <Breadcrumb.Item href={`${this.createURL(index)}`}>
-                        <IntlMessages id={name.label}/>
-                    </Breadcrumb.Item>
-                );
-            } 
+                let name=this.findNameMenuWithKey(this.props.menuOption,val);
+                if(name!==undefined){
+                    return (
+                        <Breadcrumb.Item key={`index${updateIndex()}`} href={`${this.createURL(index)}`}>
+                            <IntlMessages id={name.label}/>
+                        </Breadcrumb.Item>
+                    );
+                }else{
+                return(<Breadcrumb.Item key={`${updateIndex()}2`}></Breadcrumb.Item>);
+                }
+            } else return <Breadcrumb.Item key={`${updateIndex()}2`}></Breadcrumb.Item>;
         });
         return result;
     }
@@ -64,20 +69,10 @@ class MyBreadcrumb extends Component{
         return(
             <TopbarWrapper>
                 <Breadcrumb>
-                    {/* <Breadcrumb.Item href="">
-                        <Icon type="home" />
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item href="">
-                        <Icon type="user" />
-                        <span>Application List</span>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>
-                        Application
-                    </Breadcrumb.Item> */}
                     {
                        (this.createBreadcrumbItem()!==undefined)?
                         this.createBreadcrumbItem():
-                        <Breadcrumb.Item>
+                        <Breadcrumb.Item key={`id${updateIndex()}`}>
                             Application
                         </Breadcrumb.Item>
                        
@@ -89,7 +84,7 @@ class MyBreadcrumb extends Component{
 }
 
 export default connect(
-    state => (console.log(state),{
+    state => ({
       auth: state.Auth,
       height: state.App.height,
       pathLocate: state.router.location.pathname

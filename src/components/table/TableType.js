@@ -2,9 +2,10 @@ import 'antd/dist/antd.css';
 import { Table } from 'antd';
 import React, { Component } from 'react';
 
+import {updateIndex} from 'settings/settings_key_antd';
 export default class extends Component{
     static  TableAntd =(dataSource,columns,obj) =>{
-       return ( <div key={`table_antd`}>
+       return ( <div key={`table_antd${updateIndex()}`}>
         <Table 
             pagination={
                 { 
@@ -24,7 +25,7 @@ export default class extends Component{
             dataSource={dataSource} 
             columns={columns}
             loading={obj.loadding['isFetchingCategory']}
-            rowKey={`table_antd`}
+            rowKey={`table_antd${updateIndex()}`}
             size="small"
         />
         </div>);

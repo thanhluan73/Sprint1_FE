@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Switcher from '../../components/themeSwitcher/themeSwitcher';
-import LanguageSwitcher from '../LanguageSwitcher';
-import Themes from './config';
-import bucketSVG from 'images/image-cpn/bucket.svg';
+// import Switcher from '../../components/themeSwitcher/themeSwitcher';
+// import LanguageSwitcher from '../LanguageSwitcher';
+// import Themes from './config';
+// import bucketSVG from 'images/image-cpn/bucket.svg';
 import IntlMessages from '../../components/utility/intlMessages';
 import ThemeSwitcherStyle from './themeSwitcher.style';
 
@@ -44,7 +44,7 @@ const demoMassage = [
 
 class ThemeSwitcher extends Component {
   render() {
-    const { customizedTheme } = this.props;
+    // const { customizedTheme } = this.props;
       const content = (
         <TopbarDropdownWrapper className="topbarMessage withImg">
           <div className="isoDropdownHeader">
@@ -54,7 +54,7 @@ class ThemeSwitcher extends Component {
           </div>
           <div className="isoDropdownBody">
             {demoMassage.map(massage => (
-              <a className="isoDropdownListItem" key={massage.id}>
+              <button className="isoDropdownListItem" key={massage.id}>
                 <div className="isoImgWrapper">
                   <img alt="#" src={Image} />
                 </div>
@@ -66,22 +66,22 @@ class ThemeSwitcher extends Component {
                   </div>
                   <p>{massage.massage}</p>
                 </div>
-              </a>
+              </button>
             ))}
           </div>
-          <a className="isoViewAllBtn">
+          <button className="isoViewAllBtn">
             <IntlMessages id="topbar.viewAll" />
-          </a>
+          </button>
         </TopbarDropdownWrapper>
       );
     const {
       isActivated,
       // changeThemes,
-      topbarTheme,
+      // topbarTheme,
       sidebarTheme,
-      layoutTheme,
-      switchActivation,
-      changeTheme
+      // layoutTheme,
+      // switchActivation,
+      // changeTheme
     } = this.props;
 
     const styleButton = { background: sidebarTheme.buttonColor };
@@ -112,16 +112,6 @@ class ThemeSwitcher extends Component {
           </a>
         </div>
 
-        {/* <button
-          type="primary"
-          className="switcherToggleBtn"
-          style={styleButton}
-          onClick={() => {
-            switchActivation();
-          }}
-        >
-          <img src={process.env.PUBLIC_URL + bucketSVG} alt="bucket" />
-        </button> */}
       </ThemeSwitcherStyle>
     );
   }

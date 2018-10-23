@@ -57,15 +57,15 @@ class TopbarNotification extends Component {
         </div>
         <div className="isoDropdownBody">
           {demoNotifications.map(notification => (
-            <a className="isoDropdownListItem" key={notification.id}>
+            <button className="isoDropdownListItem" key={notification.id}>
               <h5>{notification.name}</h5>
               <p>{notification.notification}</p>
-            </a>
+            </button>
           ))}
         </div>
-        <a className="isoViewAllBtn">
+        <button className="isoViewAllBtn">
           <IntlMessages id="topbar.viewAll" />
-        </a>
+        </button>
       </TopbarDropdownWrapper>
     );
     return (
